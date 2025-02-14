@@ -23,11 +23,8 @@ public class Asset {
 	@Column(length = 100)
 	private String subject;
 	
-<<<<<<< HEAD
 	private int price;
 	
-=======
->>>>>>> origin/hyowon
 	private String content;
 	
 	private String objfile;
