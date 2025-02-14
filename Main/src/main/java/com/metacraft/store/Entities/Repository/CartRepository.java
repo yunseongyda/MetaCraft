@@ -7,6 +7,6 @@ import com.metacraft.store.Entities.Cart;
 import com.metacraft.store.Entities.SiteUser;
 
 @Repository
-public interface CartRepository extends JpaRepository<Cart, SiteUser>{
+public interface CartRepository extends JpaRepository<Cart, Integer>{
 
 }
