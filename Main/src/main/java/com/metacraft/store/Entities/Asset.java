@@ -23,6 +23,8 @@ public class Asset {
 	@Column(length = 100)
 	private String subject;
 	
+	private int price;
+	
 	private String content;
 	
 	private String objfile;
