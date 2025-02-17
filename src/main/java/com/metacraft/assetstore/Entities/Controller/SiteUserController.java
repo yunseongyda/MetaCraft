@@ -17,11 +17,11 @@ public class SiteUserController {
   
   @GetMapping("/register")
   public String register() {
-    return "user/register";
+    return "register";
   }
 
   @GetMapping("/login")
   public String login() {
-    return "user/login";
+    return "login";
   }
 }
