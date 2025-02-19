@@ -2,6 +2,7 @@ package com.metacraft.assetstore.Entities;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -27,11 +28,21 @@ public class Product {
 	
 	private String content;
 	
+	private String category;
+
 	private int price;
 	
 	private LocalDateTime createTime;
 
 	private LocalDateTime updateTime;
+
+	private int totalView;
+
+	@OneToMany
+	private Set<SiteUser> likeUsers;
+	@OneToMany
+	private Set<SiteUser> buyUsers;
+
 
 	@OneToOne
 	private Asset modelAsset;
@@ -40,6 +51,6 @@ public class Product {
 	private SiteUser siteUser;
 	
 	@OneToMany(mappedBy = "asset")
-	private List<Comment> comments;
+	private List<Review> comments;
 	
 }

@@ -1,5 +1,7 @@
 package com.metacraft.assetstore.Entities;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,7 +14,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Comment {
+public class Review {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,5 +28,9 @@ public class Comment {
 	
 	@ManyToOne
 	private Product asset;
+	
+	private LocalDateTime createTime;
+
+	private int rating;
 	
 }

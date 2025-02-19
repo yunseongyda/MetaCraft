@@ -19,4 +19,6 @@ public class Cart {
 	
 	@OneToMany
 	private List<Product> asset;
+
+	
 }

@@ -29,6 +29,7 @@ public class SiteUser {
 	
 	@OneToMany(mappedBy = "siteUser")
 	private List<Product> assets;
+	
 	@OneToMany(mappedBy = "siteUser")
-	private List<Comment> comments;
+	private List<Review> comments;
 }
