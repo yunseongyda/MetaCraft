@@ -18,4 +18,6 @@ public class Asset {
   private String mtl;
   
   private String bd;
+
+  //todo : 질감마다 얼마나 사용했느지 
 }
