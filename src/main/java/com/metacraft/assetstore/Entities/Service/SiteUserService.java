@@ -1,5 +1,6 @@
 package com.metacraft.assetstore.Entities.Service;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -15,12 +16,17 @@ import org.springframework.stereotype.Service;
 
 import com.metacraft.assetstore.Entities.SiteUser;
 import com.metacraft.assetstore.Entities.UserRole;
+=======
+import org.springframework.stereotype.Service;
+
+>>>>>>> origin/main
 import com.metacraft.assetstore.Entities.Repository.SiteUserRepository;
 
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Service
+<<<<<<< HEAD
 public class SiteUserService implements UserDetailsService{
 	private final SiteUserRepository userRepo;
 	private final PasswordEncoder passwordEncoder;
@@ -47,4 +53,8 @@ public class SiteUserService implements UserDetailsService{
         }
         return new User(siteUser.getUsername(), siteUser.getPassword(), authorities);
     }
+=======
+public class SiteUserService {
+	private final SiteUserRepository userRepo;
+>>>>>>> origin/main
 }

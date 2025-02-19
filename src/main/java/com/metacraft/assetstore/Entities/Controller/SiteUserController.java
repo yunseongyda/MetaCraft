@@ -1,6 +1,7 @@
 package com.metacraft.assetstore.Entities.Controller;
 
 import org.springframework.stereotype.Controller;
+<<<<<<< HEAD
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +12,13 @@ import com.metacraft.assetstore.Entities.Form.UserCreateForm;
 import com.metacraft.assetstore.Entities.Service.SiteUserService;
 
 import jakarta.validation.Valid;
+=======
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.metacraft.assetstore.Entities.Service.SiteUserService;
+
+>>>>>>> origin/main
 import lombok.RequiredArgsConstructor;
 
 @Controller
@@ -21,6 +29,7 @@ public class SiteUserController {
   private final SiteUserService siteUserService;
   
   @GetMapping("/register")
+<<<<<<< HEAD
   public String register(Model model) {
     model.addAttribute("form", new UserCreateForm());
     return "register";
@@ -39,10 +48,18 @@ public class SiteUserController {
     siteUserService.create(createForm.getUsername(), createForm.getEmail(), createForm.getPassword1());
     return "redirect:/siteuser/login";
 
+=======
+  public String register() {
+    return "user/register";
+>>>>>>> origin/main
   }
 
   @GetMapping("/login")
   public String login() {
+<<<<<<< HEAD
     return "login";
+=======
+    return "user/login";
+>>>>>>> origin/main
   }
 }
