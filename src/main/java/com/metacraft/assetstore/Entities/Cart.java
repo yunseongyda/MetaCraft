@@ -18,5 +18,5 @@ public class Cart {
 	private Integer userId;
 	
 	@OneToMany
-	private List<Asset> asset;
+	private List<Product> asset;
 }
