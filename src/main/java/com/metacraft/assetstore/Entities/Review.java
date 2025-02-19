@@ -1,9 +1,6 @@
 package com.metacraft.assetstore.Entities;
-<<<<<<<< HEAD:src/main/java/com/metacraft/assetstore/Entities/Review.java
 
 import java.time.LocalDateTime;
-========
->>>>>>>> origin/main:src/main/java/com/metacraft/assetstore/Entities/Comment.java
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

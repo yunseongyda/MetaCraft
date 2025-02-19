@@ -9,11 +9,5 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class AssetService {
-<<<<<<< HEAD
   private final AssetRepository assetRepo;
-=======
-	private final AssetRepository assetRepo;
-	
-	
->>>>>>> origin/main
 }
