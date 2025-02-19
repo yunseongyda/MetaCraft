@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.metacraft.assetstore.Entities.Form.UserCreateForm;
+import com.metacraft.assetstore.Entities.Form.RegisterUserForm;
 import com.metacraft.assetstore.Entities.Service.SiteUserService;
 
 import jakarta.validation.Valid;
@@ -22,12 +22,12 @@ public class SiteUserController {
   
   @GetMapping("/register")
   public String register(Model model) {
-    model.addAttribute("form", new UserCreateForm());
+    model.addAttribute("form", new RegisterUserForm());
     return "register";
   }
 
   @PostMapping("/register")
-  public String createUser(@Valid UserCreateForm createForm, BindingResult bindingResult, UserCreateForm form) {
+  public String createUser(@Valid RegisterUserForm createForm, BindingResult bindingResult, RegisterUserForm form) {
     if (bindingResult.hasErrors()) {
       return "register";
     }
