@@ -21,11 +21,13 @@ public class SiteUserController {
 
   private final SiteUserService siteUserService;
   
+  // 회원가입
   @GetMapping("/register")
   public String register(RegisterUserForm registerUserForm) {
     return "register";
   }
 
+  // 회원가입 처리
   @PostMapping("/register")
   public String createUser(@Valid RegisterUserForm registerUserForm, BindingResult bindingResult) {
     if (bindingResult.hasErrors()) {
@@ -55,7 +57,7 @@ public class SiteUserController {
 
   }
 
-
+  // 로그인
   @GetMapping("/login")
   public String login() {
     return "login";
