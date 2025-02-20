@@ -1,5 +1,6 @@
 package com.metacraft.assetstore.Entities.Controller;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,25 +22,39 @@ public class SiteUserController {
   private final SiteUserService siteUserService;
   
   @GetMapping("/register")
-  public String register(Model model) {
-    model.addAttribute("form", new RegisterUserForm());
+  public String register(RegisterUserForm registerUserForm) {
     return "register";
   }
 
   @PostMapping("/register")
-  public String createUser(@Valid RegisterUserForm createForm, BindingResult bindingResult, RegisterUserForm form) {
+  public String createUser(@Valid RegisterUserForm registerUserForm, BindingResult bindingResult) {
     if (bindingResult.hasErrors()) {
       return "register";
     }
 
-    if (!createForm.getPassword1().equals(createForm.getPassword2())) {
-      bindingResult.rejectValue("password2", "passwordInCorrect", "비밀번호가 일치하지 않습니다.");
+    // 비밀번호 확인
+    if (!registerUserForm.getPassword1().equals(registerUserForm.getPassword2())) {
+      bindingResult.rejectValue("password2", "passwordInCorrect", "The password does not match.");
       return "register";
     }
-    siteUserService.create(createForm.getUsername(), createForm.getEmail(), createForm.getPassword1());
+
+    // 중복확인
+    try {
+      siteUserService.create(registerUserForm.getUsername(), registerUserForm.getEmail(), registerUserForm.getPassword1());
+    } catch(DataIntegrityViolationException e) {
+      e.printStackTrace();
+      bindingResult.rejectValue("username", "duplicated", "The username is already in use.");
+      return "register";
+    } catch(Exception e) {
+      e.printStackTrace();
+      bindingResult.rejectValue("registerFailed", e.getMessage());
+      return "register";
+    }
+    
     return "redirect:/siteuser/login";
 
   }
+
 
   @GetMapping("/login")
   public String login() {
