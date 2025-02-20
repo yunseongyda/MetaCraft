@@ -26,7 +26,9 @@ public class Product {
 	@Column(length = 100)
 	private String subject;
 	
-	private String content;
+	private String Introduction;
+
+	private String description;
 	
 	private String category;
 
