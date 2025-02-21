@@ -11,7 +11,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Cart {
+public class WishList {
 
 	@Id
 	private Integer userId;
