@@ -1,69 +1,116 @@
-<html lang="zxx" layout:fragment="content" layout:decorate = "~{layout}">
-    <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.png">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="breadcrumb__text">
-                        <h2>Contact Us</h2>
-                    </div>
+<html lang="zxx" layout:fragment="content" layout:decorate="~{layout}">
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.png">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>Contact Us</h2>
                 </div>
-            </div>
-        </div>
-    </section>
-    <!-- Breadcrumb Section End -->
-
-    <!-- Contact Section Begin -->
-    <section class="contact spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                    <div class="contact__widget">
-                        <span class="icon_phone"></span>
-                        <h4>Phone</h4>
-                        <p>+82-01-3335-2182</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                    <div class="contact__widget">
-                        <span class="icon_pin_alt"></span>
-                        <h4>Address</h4>
-                        <p>준식시 엄준구 엄준식로 8-19</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                    <div class="contact__widget">
-                        <span class="icon_clock_alt"></span>
-                        <h4>Open time</h4>
-                        <p>24hour</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                    <div class="contact__widget">
-                        <span class="icon_mail_alt"></span>
-                        <h4>Email</h4>
-                        <p>khw33352182@gmail.com</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Contact Section End -->
-
-    <!-- Map Begin -->
-    <div class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1587.406717841967!2d127.04889362767973!3d37.27585090570086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b5b52139acba1%3A0x5bc16a62190a0b22!2z7IiY7JuQ7KCV67O06rO87ZWZ6rOg65Ox7ZWZ6rWQ!5e0!3m2!1sko!2skr!4v1740132094253!5m2!1sko!2skr"
-        height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        
-        <div class="map-inside">
-            <i class="icon_pin"></i>
-            <div class="inside-widget">
-                <h4>수원정보과학고</h4>
-                <ul>
-                    <li>Phone: 010-3335-2182</li>
-                </ul>
             </div>
         </div>
     </div>
-    <!-- Map End -->
+</section>
+<!-- Breadcrumb Section End -->
+
+<!-- Contact Section Begin -->
+<section class="contact spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                <div class="contact__widget">
+                    <span class="icon_phone"></span>
+                    <h4>Phone</h4>
+                    <p>+82-01-3335-2182</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                <div class="contact__widget">
+                    <span class="icon_pin_alt"></span>
+                    <h4>Address</h4>
+                    <p>준식시 엄준구 엄준식로 8-19</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                <div class="contact__widget">
+                    <span class="icon_clock_alt"></span>
+                    <h4>Open time</h4>
+                    <p>24hour</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                <div class="contact__widget">
+                    <span class="icon_mail_alt"></span>
+                    <h4>Email</h4>
+                    <p>khw33352182@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact Section End -->
+<div class="container mb-5">
+    <div class="row align-items-stretch justify-content-center no-gutters">
+        <div class="col-md-7">
+            <div class="form h-100 contact-wrap p-5 shadow-lg p-3 mb-5 bg-white rounded">
+                <h3 class="text-center">inquiry</h3>
+                <form th:action="@{|/contact|}" method="post" id="contactForm" name="contactForm">
+                    <div class="row">
+                        <div class="col-md-12 form-group mb-3">
+                            <label for="" class="col-form-label">Email</label>
+                            <input type="email" class="form-control bottom-border" name="email" id="email" placeholder="Your email">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 form-group mb-3">
+                            <label for="budget" class="col-form-label">Subject</label>
+                            <input type="text" class="form-control bottom-border" name="subject" id="subject"
+                                placeholder="Your subject">
+                        </div>
+                    </div>
+
+                    <div class="row mb-5">
+                        <div class="col-md-12 form-group mb-3">
+                            <label for="message" class="col-form-label">Message</label>
+                            <textarea class="form-control bottom-border" name="content" id="message" cols="30" rows="4"
+                                placeholder="Write your message"></textarea>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-5 form-group text-center">
+                            <input type="submit" value="Send Message"
+                                class="btn btn-block btn-primary rounded-0 py-2 px-4">
+                            <span class="submitting"></span>
+                        </div>
+                    </div>
+                </form>
+
+                <div id="form-message-warning mt-4"></div>
+                <div id="form-message-success">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Map Begin -->
+<div class="map">
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1587.406717841967!2d127.04889362767973!3d37.27585090570086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b5b52139acba1%3A0x5bc16a62190a0b22!2z7IiY7JuQ7KCV67O06rO87ZWZ6rOg65Ox7ZWZ6rWQ!5e0!3m2!1sko!2skr!4v1740132094253!5m2!1sko!2skr"
+        height="550" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    <div class="map-inside">
+        <i class="icon_pin"></i>
+        <div class="inside-widget">
+            <h4>수원정보과학고</h4>
+            <ul>
+                <li>Phone: 010-3335-2182</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Map End -->
+
 </html>
