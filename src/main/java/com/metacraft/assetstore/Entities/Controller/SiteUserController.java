@@ -62,4 +62,10 @@ public class SiteUserController {
   public String login() {
     return "login";
   }
+
+  // 프로필
+  @GetMapping("/profile")
+  public String profile() {
+    return "profile";
+  }
 }
