@@ -55,6 +55,8 @@ public class Product {
 	
 	@OneToMany(mappedBy = "asset")
 	private List<Review> comments;
+
 	@ManyToMany
 	private List<SiteUser> LikedPeople;
+
 }
