@@ -11,7 +11,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class WishList {
+public class Wishlist {
 
 	@Id
 	private Integer userId;

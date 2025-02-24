@@ -2,13 +2,13 @@ package com.metacraft.assetstore.Entities.Service;
 
 import org.springframework.stereotype.Service;
 
-import com.metacraft.assetstore.Entities.WishList;
-import com.metacraft.assetstore.Entities.Repository.WishListRepository;
+import com.metacraft.assetstore.Entities.Wishlist;
+import com.metacraft.assetstore.Entities.Repository.WishlistRepository;
 
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Service
-public class WishListService {
-	private final WishListRepository wishListRepo;
+public class WishlistService {
+	private final WishlistRepository wishlistRepo;
 }
