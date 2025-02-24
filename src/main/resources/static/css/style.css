@@ -171,6 +171,17 @@ ol {
 	letter-spacing: 2px;
 }
 
+.warning-btn {
+	display: inline-block;
+	font-size: 14px;
+	padding: 10px 28px 10px;
+	color: #ffffff;
+	text-transform: uppercase;
+	font-weight: 700;
+	background: #ff4a52;
+	letter-spacing: 2px;
+}
+
 .site-btn {
 	font-size: 14px;
 	color: #ffffff;
@@ -1711,7 +1722,7 @@ ol {
 	margin-bottom: 45px;
 }
 
-.product__details__text .primary-btn {
+.product__details__text .primary-btn, .product__details__text .warning-btn {
 	padding: 16px 28px 14px;
 	margin-right: 6px;
 	margin-bottom: 5px;
@@ -1977,7 +1988,7 @@ ol {
 	background: #f5f5f5;
 }
 
-.primary-btn.cart-btn span {
+.primary-btn.cart-btn span, .warning-btn.cart-btn span {
 	font-size: 14px;
 }
 
