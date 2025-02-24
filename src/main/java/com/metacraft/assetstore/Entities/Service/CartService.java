@@ -2,6 +2,7 @@ package com.metacraft.assetstore.Entities.Service;
 
 import org.springframework.stereotype.Service;
 
+import com.metacraft.assetstore.Entities.Cart;
 import com.metacraft.assetstore.Entities.Repository.CartRepository;
 
 import lombok.RequiredArgsConstructor;

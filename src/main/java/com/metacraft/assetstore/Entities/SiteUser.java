@@ -33,7 +33,7 @@ public class SiteUser {
 	
 	@OneToMany(mappedBy = "siteUser")
 	private List<Review> comments;
-
+  
 	@ManyToMany
 	private List<Product> LikeProduct;
 }
