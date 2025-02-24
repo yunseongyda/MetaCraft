@@ -32,6 +32,14 @@ public class SiteUserService implements UserDetailsService{
 		user.setPassword(passwordEncoder.encode(pasword));
 		return userRepo.save(user);
 	}
+
+    public SiteUser getSiteUser(String usernam){
+        Optional<SiteUser> user = userRepo.findByusername(usernam);                 
+        if (user.isPresent())
+            return user.get();
+        else
+            return null;
+    }
 	@Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<SiteUser> _siteUser = this.userRepo.findByusername(username);

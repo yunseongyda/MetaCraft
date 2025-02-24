@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
@@ -26,7 +27,9 @@ public class Product {
 	@Column(length = 100)
 	private String subject;
 	
-	private String content;
+	private String Introduction;
+
+	private String description;
 	
 	private String category;
 
@@ -52,5 +55,6 @@ public class Product {
 	
 	@OneToMany(mappedBy = "asset")
 	private List<Review> comments;
-	
+	@ManyToMany
+	private List<SiteUser> LikedPeople;
 }
