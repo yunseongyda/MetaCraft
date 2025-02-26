@@ -30,6 +30,15 @@
 /* Template default CSS
 /*----------------------------------------*/
 
+
+/*효원 css begin*/
+.highlight{
+	color: var(--darkblue);
+	font-size: 4em;
+	font-weight: bold;
+}
+/*효원 css end*/
+
 html,
 body {
 	height: 100%;
