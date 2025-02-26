@@ -737,6 +737,10 @@ ol {
 	color: #6f6f6f;
 }
 
+.height-50{
+	height: 50px;
+}
+
 .hero__item {
 	height: 431px;
 	display: flex;
