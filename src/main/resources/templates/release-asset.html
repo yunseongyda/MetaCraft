@@ -1,0 +1,48 @@
+<html lang="en" layout:decorate="~{layout}" layout:fragment="content">
+  
+  <div class="container my-5">
+    <h2 class="highlight my-5">Realse Asset</h2>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <!-- Left section (can be filled as needed) -->
+        <form th:action="@{/}">
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group">
+                <label class="font-weight-bold" for="exampleFormControlInput1">Subject</label>
+                <input type="text" class="form-control bottom-border" id="exampleFormControlInput1">
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <label class="font-weight-bold" for="exampleFormControlTextarea1">Introduce Asset</label>
+                <textarea class="form-control bottom-border" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <label class="font-weight-bold" for="exampleFormControlTextarea1">Description</label>
+                <textarea class="form-control bottom-border" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+            </div>
+            <div class="col-8">
+              <div class="form-group">
+                <label class="font-weight-bold" for="exampleFormControlInput1">Price</label>
+                <input type="text" class="form-control bottom-border" id="exampleFormControlInput1">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group mt-3">
+                <!-- Custom height for submit button using inline CSS -->
+                <input type="submit" class="site-btn w-100" value="Release" style="height: 100%;"/>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-12 col-md-6">
+        
+      </div>
+    </div>
+  </div>
+</html>

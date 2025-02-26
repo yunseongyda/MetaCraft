@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.metacraft.assetstore.Entities.Service.ProductService;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @Controller
@@ -20,4 +22,9 @@ public class ProductController {
   public String ProductInfo(){
     return "shop-details";
   }
+  @GetMapping("/release")
+  public String getMethodName() {
+      return "release-asset";
+  }
+  
 }
