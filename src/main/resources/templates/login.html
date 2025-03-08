@@ -1,55 +1,65 @@
 <html layout:decorate="~{layout}">
-<section layout:fragment="content" class="vh-100" style="background-color: #eee;">
-  <div class="container h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-lg-12 col-xl-11">
-        <div class="card text-black" style="border-radius: 25px;">
-          <div class="card-body p-md-5">
-            <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Log In</p>
+<head>
+  <!-- Font Icon -->
+  <link rel="stylesheet" href="../fonts/material-icon/css/material-design-iconic-font.min.css">
 
-                <form class="mx-1 mx-md-4" th:action="@{/siteuser/login}" method="post">
-                  <div th:if="${param.error}">
-                    <div class="alert alert-danger">
-                      Invalid username and password.
-                    </div>
-                  </div>
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                    <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <input type="text" id="form3Example1c" class="form-control" name="username" />
-                      <label class="form-label" for="form3Example1c">Name</label>
-                    </div>
-                  </div>
+  <!-- Main css -->
+  <link rel="stylesheet" href="../css/RLstyle.css">
+  <style>
+    a.signup-image-link:hover,
+    a.term-service:hover,
+    a.forgotPw:hover {
+      transition: 0.3s;
+      color: #1D5B94;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<!-- Sing in  Form -->
+<section layout:fragment="content" class="sign-in">
+  <div class="container">
+    <div class="signin-content">
+      <div class="signin-image">
+        <figure><img src="../img/signin-image.jpg" alt="sing up image"></figure>
+        Need an account?&nbsp;<a th:href="@{/siteuser/register}" class="signup-image-link d-inline text-primary">Register</a>
+      </div>
 
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                    <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4c" class="form-control" name="password" />
-                      <label class="form-label" for="form3Example4c">Password</label>
-                    </div>
-                  </div>
-                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <input type="submit" class="btn btn-primary btn-lg" value="Log in" />
-                  </div>
-
-                </form>
-
-              </div>
-              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                  class="img-fluid" alt="Sample image">
-
-              </div>
-            </div>
+      <div class="signin-form">
+        <h2 class="form-title">Sign up</h2>
+        <form th:action="@{/siteuser/login}" method="POST" class="register-form" id="login-form">
+          <div th:if="${param.error}">
+            <div class="alert alert-danger" role="alert">Invalid username and password.</div>
           </div>
+          <div class="form-group">
+            <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+            <input type="text" name="your_name" id="your_name" placeholder="Your Name" />
+          </div>
+          <div class="form-group">
+            <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+            <input type="password" name="your_pass" id="your_pass" placeholder="Password" />
+          </div>
+          <div class="form-group">
+            <!-- <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
+            <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label> -->
+            <label for="forgotPw" class="label-agree-term"><a href="" class="forgotPw">Forgot your password?</a></label>
+          </div>
+          <div class="form-group form-button">
+            <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
+          </div>
+        </form>
+        <div class="social-login">
+          <span class="social-label">Or login with</span>
+          <ul class="socials">
+            <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
+            <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
+            <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
 </section>
+
 
 </html>
