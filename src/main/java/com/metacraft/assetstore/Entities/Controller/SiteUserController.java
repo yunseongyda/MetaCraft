@@ -43,11 +43,19 @@ public class SiteUserController {
     // 중복확인
     try {
       siteUserService.create(registerUserForm.getUsername(), registerUserForm.getEmail(), registerUserForm.getPassword1());
-    } catch(DataIntegrityViolationException e) {
-      e.printStackTrace();
-      bindingResult.rejectValue("username", "duplicated", "The username is already in use.");
+    // } catch(DataIntegrityViolationException e) {
+    //   e.printStackTrace();
+    //   bindingResult.rejectValue("username", "duplicated", "The username is already in use.");
+    //   return "register";
+    } catch(IllegalArgumentException e) {
+      if (e.getMessage().contains("username")) {
+        bindingResult.rejectValue("username", "duplicated", "The username is already in use.");
+      } else if (e.getMessage().contains("email")) {
+        bindingResult.rejectValue("email", "duplicated", "The email is already in use.");
+      }
       return "register";
-    } catch(Exception e) {
+    }
+    catch(Exception e) {
       e.printStackTrace();
       bindingResult.rejectValue("registerFailed", e.getMessage());
       return "register";
