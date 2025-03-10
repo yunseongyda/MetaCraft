@@ -9,5 +9,9 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class AssetService {
+  
   private final AssetRepository assetRepo;
+  private final S3Service s3Service;
+
+  // public Asset saveAsset()
 }
