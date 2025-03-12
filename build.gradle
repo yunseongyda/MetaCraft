@@ -43,8 +43,15 @@ dependencies {
 	// Database
 	runtimeOnly 'com.h2database:h2'
 
-	// AWS
+	// 기존 AWS 의존성
 	implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE'
+
+	// 최신 AWS SDK를 사용하고 싶다면 추가 (선택)
+	implementation platform('software.amazon.awssdk:bom:2.20.143')
+	implementation 'software.amazon.awssdk:s3'
+
+	// Spring Boot 3.x를 사용한다면?
+	implementation 'io.awspring.cloud:spring-cloud-aws-starter-s3:3.0.2'
 
 	// Lombok
 	compileOnly group: 'org.projectlombok', name: 'lombok'
