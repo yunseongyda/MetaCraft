@@ -26,5 +26,9 @@ public class ProductController {
   public String getMethodName() {
       return "release-asset";
   }
+  @GetMapping("/test")
+  public String Build() {
+      return "test";
+  }
   
 }
