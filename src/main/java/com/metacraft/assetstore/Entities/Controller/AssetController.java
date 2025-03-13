@@ -32,12 +32,19 @@ public class AssetController {
     @RequestParam String bd,
     @RequestParam("files") List<MultipartFile> files
   ) {
+      // 디버깅
+      System.out.println("obj: " + obj);
+      System.out.println("mtl: " + mtl);
+      System.out.println("bd: " + bd);
+      System.out.println("files size: " + files.size());
+
       //TODO: process POST request
 
       try {
         Asset asset = assetService.uploadAsset(obj, mtl, bd, files);
         return ResponseEntity.ok(asset);
       } catch (Exception e) {
+        e.printStackTrace();
         return ResponseEntity.badRequest().build();
       }
       
