@@ -2,23 +2,25 @@ package com.metacraft.assetstore.Entities.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.model.ObjectMetadata;
-
 import lombok.RequiredArgsConstructor;
+import software.amazon.awssdk.services.s3.model.PutObjectRequest;
+import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.core.sync.RequestBody;
 
 @Service
 @RequiredArgsConstructor
 public class S3Service {
 
-  private final AmazonS3 s3Client;
+  private final S3Client s3Client;
 
-  @Value("${aws.s3.bucket}") // application.properties에 있는 aws.s3.bucket 값을 가져옴
+  @Value("${aws.s3.bucket}")
   private String bucketName;
 
   // S3에 파일(이미지) 업로드하고, 업로드된 파일 URL 목록 반환
@@ -27,10 +29,24 @@ public class S3Service {
 
     for (MultipartFile file : files) {
       String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
-      ObjectMetadata metadata = new ObjectMetadata();
-      s3Client.putObject(bucketName, fileName, file.getInputStream(), metadata);
-      
-      fileUrls.add(s3Client.getUrl(bucketName, fileName).toString());
+
+      // 메타데이터를 Map으로 설정
+      Map<String, String> metadata = new HashMap<>();
+      metadata.put("key", "value"); // 예시로 메타데이터 추가
+
+      // PutObjectRequest 생성 (메타데이터 설정)
+      PutObjectRequest putObjectRequest = PutObjectRequest.builder()
+                                                          .bucket(bucketName)
+                                                          .key(fileName)
+                                                          .metadata(metadata) // Map으로 메타데이터 설정
+                                                          .build();
+
+      // S3에 파일 업로드
+      s3Client.putObject(putObjectRequest, RequestBody.fromBytes(file.getBytes()));
+
+      // 파일 URL 생성
+      String fileUrl = s3Client.utilities().getUrl(builder -> builder.bucket(bucketName).key(fileName)).toString();
+      fileUrls.add(fileUrl);
     }
 
     return fileUrls;
