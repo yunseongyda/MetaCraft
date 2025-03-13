@@ -17,14 +17,16 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class SecurityConfig {
 	@Bean
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http.authorizeHttpRequests(
-				(authorizeHttpRequests) -> authorizeHttpRequests.requestMatchers(new AntPathRequestMatcher("/**")).permitAll())
-				.csrf((csrf) -> csrf.ignoringRequestMatchers(new AntPathRequestMatcher("/h2-console/**")))
-				.headers((headers) -> headers.addHeaderWriter(new XFrameOptionsHeaderWriter(XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN)))
-				.formLogin((formLogin) -> formLogin
-        .loginPage("/siteuser/login")
-        .defaultSuccessUrl("/"))
-				.logout((logout) -> logout.logoutRequestMatcher(new AntPathRequestMatcher("/siteuser/signout")).logoutSuccessUrl("/").invalidateHttpSession(true));
+		// http.authorizeHttpRequests(
+		// 		(authorizeHttpRequests) -> authorizeHttpRequests.requestMatchers(new AntPathRequestMatcher("/**")).permitAll())
+		// 		.csrf((csrf) -> csrf.ignoringRequestMatchers(new AntPathRequestMatcher("/h2-console/**")))
+		// 		.headers((headers) -> headers.addHeaderWriter(new XFrameOptionsHeaderWriter(XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN)))
+		// 		.formLogin((formLogin) -> formLogin
+    //     .loginPage("/siteuser/login")
+    //     .defaultSuccessUrl("/"))
+		// 		.logout((logout) -> logout.logoutRequestMatcher(new AntPathRequestMatcher("/siteuser/signout")).logoutSuccessUrl("/").invalidateHttpSession(true));
+		http.csrf().disable();
+		http.authorizeHttpRequests().anyRequest().permitAll();
 		return http.build();
 	}
 
