@@ -1,4 +1,4 @@
-package com.metacraft.assetstore;
+package com.metacraft.assetstore.Config;
 
 import java.util.List;
 
