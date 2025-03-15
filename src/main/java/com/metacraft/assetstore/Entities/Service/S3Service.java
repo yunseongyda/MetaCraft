@@ -1,5 +1,7 @@
 package com.metacraft.assetstore.Entities.Service;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
@@ -23,12 +25,20 @@ public class S3Service {
   @Value("${aws.s3.bucket}")
   private String bucketName;
 
+  String folderName = "images/";
+
   // S3에 파일(이미지) 업로드하고, 업로드된 파일 URL 목록 반환
   public List<String> uploadFiles(List<MultipartFile> files) throws Exception {
     List<String> fileUrls = new ArrayList<>();
 
+    // 오늘 날짜 포멧팅
+    String currentDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
+    // 날짜별로 폴더 경로 추가
+    String dateFolder = folderName + currentDate + "/";
+
     for (MultipartFile file : files) {
-      String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+      String fileName = dateFolder + System.currentTimeMillis() + "_" + file.getOriginalFilename();
 
       // 메타데이터를 Map으로 설정
       Map<String, String> metadata = new HashMap<>();
