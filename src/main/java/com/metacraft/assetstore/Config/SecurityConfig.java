@@ -1,4 +1,4 @@
-package com.metacraft.assetstore;
+package com.metacraft.assetstore.Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,6 +25,8 @@ public class SecurityConfig {
         .loginPage("/siteuser/login")
         .defaultSuccessUrl("/"))
 				.logout((logout) -> logout.logoutRequestMatcher(new AntPathRequestMatcher("/siteuser/signout")).logoutSuccessUrl("/").invalidateHttpSession(true));
+		http.csrf().disable();
+		http.authorizeHttpRequests().anyRequest().permitAll();
 		return http.build();
 	}
 

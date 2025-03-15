@@ -10,18 +10,18 @@ import lombok.Setter;
 @Getter
 public class RegisterUserForm {
 
-  @Size(min = 5, max = 20)
-  @NotEmpty(message = "사용자 Id는 필수 항목입니다.")
+  @Size(min = 5, max = 20, message = "The ID must be between 5 and 20 characters.")
+  @NotEmpty(message = "The ID is necessary.")
   private String username;
 
-  @NotEmpty(message = "이메일은 필수 항목입니다.")
+  @NotEmpty(message = "The email is neseccary.")
   @Email
   private String email;
 
-  @NotEmpty(message = "비밀번호는 필수 항목입니다.")
+  @NotEmpty(message = "The password is necessary.")
   private String password1;
 
-  @NotEmpty(message = "비밀번호 확인은 필수 항목입니다.")
+  @NotEmpty(message = "You must confirm your password.")
   private String password2;
 
 }

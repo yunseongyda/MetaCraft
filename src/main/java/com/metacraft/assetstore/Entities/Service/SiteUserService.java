@@ -21,39 +21,48 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Service
-public class SiteUserService implements UserDetailsService{
-	private final SiteUserRepository userRepo;
-	private final PasswordEncoder passwordEncoder;
+public class SiteUserService implements UserDetailsService {
+  private final SiteUserRepository userRepo;
+  private final PasswordEncoder passwordEncoder;
 
-	public SiteUser create (String username, String email, String pasword){
-		SiteUser user = new SiteUser();
-		user.setUsername(username);
-		user.setEmail(email);
-		user.setPassword(passwordEncoder.encode(pasword));
-		return userRepo.save(user);
-	}
-
-  public SiteUser getSiteUser(String usernam){
-    Optional<SiteUser> user = userRepo.findByusername(usernam);                 
-      if (user.isPresent())
-        return user.get();
-      else
-        return null;
-  }
-  
-	@Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<SiteUser> _siteUser = this.userRepo.findByusername(username);
-        if (_siteUser.isEmpty()) {
-            throw new UsernameNotFoundException("사용자를 찾을수 없습니다.");
-        }
-        SiteUser siteUser = _siteUser.get();
-        List<GrantedAuthority> authorities = new ArrayList<>();
-        if ("admin".equals(username)) {
-            authorities.add(new SimpleGrantedAuthority(UserRole.ADMIN.getValue()));
-        } else {
-            authorities.add(new SimpleGrantedAuthority(UserRole.USER.getValue()));
-        }
-        return new User(siteUser.getUsername(), siteUser.getPassword(), authorities);
+  // 회원가입 처리
+  public SiteUser create(String username, String email, String pasword) {
+    // 중복 검사
+    if (userRepo.existsByUsername(username)) {
+      throw new IllegalArgumentException("The username is already in use.");
     }
+    if (userRepo.existsByEmail(email)) {
+      throw new IllegalArgumentException("The email is already in use.");
+    }
+    
+    SiteUser user = new SiteUser();
+    user.setUsername(username);
+    user.setEmail(email);
+    user.setPassword(passwordEncoder.encode(pasword));
+    return userRepo.save(user);
+  }
+
+  public SiteUser getSiteUser(String usernam) {
+    Optional<SiteUser> user = userRepo.findByusername(usernam);
+    if (user.isPresent())
+      return user.get();
+    else
+      return null;
+  }
+
+  @Override
+  public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    Optional<SiteUser> _siteUser = this.userRepo.findByusername(username);
+    if (_siteUser.isEmpty()) {
+      throw new UsernameNotFoundException("사용자를 찾을수 없습니다.");
+    }
+    SiteUser siteUser = _siteUser.get();
+    List<GrantedAuthority> authorities = new ArrayList<>();
+    if ("admin".equals(username)) {
+      authorities.add(new SimpleGrantedAuthority(UserRole.ADMIN.getValue()));
+    } else {
+      authorities.add(new SimpleGrantedAuthority(UserRole.USER.getValue()));
+    }
+    return new User(siteUser.getUsername(), siteUser.getPassword(), authorities);
+  }
 }

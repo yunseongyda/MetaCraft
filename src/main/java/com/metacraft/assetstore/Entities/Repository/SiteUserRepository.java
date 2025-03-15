@@ -10,4 +10,6 @@ import com.metacraft.assetstore.Entities.SiteUser;
 @Repository
 public interface SiteUserRepository extends JpaRepository<SiteUser, Integer>{
   Optional<SiteUser> findByusername(String username);
+  boolean existsByUsername(String username);
+  boolean existsByEmail(String email);
 }

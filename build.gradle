@@ -24,27 +24,41 @@ repositories {
 }
 
 dependencies {
+	// Spring Boot Starters
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-	implementation group: 'org.springframework.boot', name: 'spring-boot-devtools'
-	compileOnly group: 'org.projectlombok', name: 'lombok'
-	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf'
-	runtimeOnly 'com.h2database:h2'
-	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa'
-	
-	testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine'
-	testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api'
-	
-	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
-	
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+	implementation 'org.springframework.boot:spring-boot-devtools'
 
+	// Spring Security
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.security:spring-security-test'
-	
-  implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
-	implementation 'org.springframework.boot:spring-boot-starter-mail'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+
+	// Thymeleaf Extras
+	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+
+	// Database
+	runtimeOnly 'com.h2database:h2'
+
+	// AWS SDK v2 의존성만 추가
+	implementation 'software.amazon.awssdk:s3:2.20.0'
+
+	// Spring Cloud AWS 의존성
+	implementation 'io.awspring.cloud:spring-cloud-aws-starter-s3:3.0.2'
+
+	// Lombok
+	compileOnly group: 'org.projectlombok', name: 'lombok'
+
+	// Testing
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine'
+	testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api'
+
+	annotationProcessor 'org.projectlombok:lombok:1.18.24'
 }
 
 tasks.named('test') {
