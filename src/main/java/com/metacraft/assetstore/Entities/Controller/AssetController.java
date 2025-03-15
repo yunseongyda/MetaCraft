@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
+import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 @RequestMapping("/api/assets")
@@ -27,27 +27,31 @@ public class AssetController {
 
   @PostMapping("/upload")
   public ResponseEntity<Asset> uploadAsset( // ResponseEntity : HTTP 응답을 나타내는 클래스
-    @RequestParam String obj,
-    @RequestParam String mtl,
-    @RequestParam String bd,
-    @RequestParam("files") List<MultipartFile> files
-  ) {
-      // 디버깅
-      System.out.println("obj: " + obj);
-      System.out.println("mtl: " + mtl);
-      System.out.println("bd: " + bd);
-      System.out.println("files size: " + files.size());
+      @RequestParam String obj,
+      @RequestParam String mtl,
+      @RequestParam String bd,
+      @RequestParam("files") List<MultipartFile> files) {
+    // 디버깅
+    System.out.println("obj: " + obj);
+    System.out.println("mtl: " + mtl);
+    System.out.println("bd: " + bd);
+    System.out.println("files size: " + files.size());
 
-      //TODO: process POST request
+    // TODO: process POST request
 
-      try {
-        Asset asset = assetService.uploadAsset(obj, mtl, bd, files);
-        return ResponseEntity.ok(asset);
-      } catch (Exception e) {
-        e.printStackTrace();
-        return ResponseEntity.badRequest().build();
-      }
-      
+    try {
+      Asset asset = assetService.uploadAsset(obj, mtl, bd, files);
+      return ResponseEntity.ok(asset);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return ResponseEntity.badRequest().build();
+    }
+
+  }
+
+  @GetMapping("/upload")
+  public String EnteruploadAsset() {
+    return "CreateAsset";
   }
 
 }
