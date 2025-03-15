@@ -42,7 +42,8 @@ public class S3Service {
 
       // 메타데이터를 Map으로 설정
       Map<String, String> metadata = new HashMap<>();
-      metadata.put("key", "value"); // 예시로 메타데이터 추가
+      metadata.put("Content-Type", "image/png");
+      metadata.put("Cache-Control", "max-age=86400");
 
       // PutObjectRequest 생성 (메타데이터 설정)
       PutObjectRequest putObjectRequest = PutObjectRequest.builder()
