@@ -42,12 +42,14 @@ body {
 #unity-container.unity-mobile {
 	position: fixed;
 	width: 100%;
-	height: 100%;
+	aspect-ratio: 16 / 9;
 	background-color: var(--darkblue);
 }
 
 #unity-canvas {
-	background: #231F20
+	background: var(--darkblue);
+	width: 100%;
+	aspect-ratio: 16 / 7;
 }
 
 .unity-mobile #unity-canvas {
@@ -107,13 +109,13 @@ body {
 	font-size: 18px
 }
 
-#unity-fullscreen-button {
+/* #unity-fullscreen-button {
 	cursor: pointer;
 	float: right;
 	width: 38px;
 	height: 38px;
 	background: url('/TemplateData/fullscreen-button.png') no-repeat center
-}
+} */
 
 #unity-warning {
 	position: absolute;
