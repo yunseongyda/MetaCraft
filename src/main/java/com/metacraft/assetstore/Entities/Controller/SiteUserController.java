@@ -24,6 +24,7 @@ public class SiteUserController {
   // 회원가입
   @GetMapping("/register")
   public String register(RegisterUserForm registerUserForm) {
+    // hi
     return "register";
   }
 
