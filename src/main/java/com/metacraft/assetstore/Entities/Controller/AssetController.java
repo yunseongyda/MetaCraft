@@ -47,9 +47,9 @@ public class AssetController {
 
   }
 
-  @GetMapping("/upload")
+  @GetMapping("/create")
   public String EnteruploadAsset() {
-    return "CreateAsset";
+    return "createAsset";
   }
 
 }
