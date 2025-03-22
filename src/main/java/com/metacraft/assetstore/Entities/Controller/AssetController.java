@@ -55,7 +55,7 @@ public class AssetController {
   }
 
   @GetMapping("/create")
-  public String EnteruploadAsset() {
+  public String enterUploadAssetPage() {
     return "createAsset";
   }
 
