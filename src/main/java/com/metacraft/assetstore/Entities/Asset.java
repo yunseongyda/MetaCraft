@@ -2,7 +2,6 @@ package com.metacraft.assetstore.Entities;
 
 import java.util.List;
 
-import groovyjarjarantlr4.v4.runtime.misc.Nullable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,17 +20,16 @@ import lombok.Setter;
 public class Asset {
 
   @Id
-  @Nullable
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
-  
-  @Column(columnDefinition = "TEXT")
+
+  @Column(columnDefinition = "TEXT", length=999999999)
   private String obj;
-  
-  @Column(columnDefinition = "TEXT")
+
+  @Column(columnDefinition = "TEXT", length=999999999)
   private String mtl;
-  
-  @Column(columnDefinition = "TEXT")
+
+  @Column(columnDefinition = "TEXT", length=999999999)
   private String bd;
 
   // @Version
