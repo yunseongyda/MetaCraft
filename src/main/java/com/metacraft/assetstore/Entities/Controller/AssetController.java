@@ -1,5 +1,6 @@
 package com.metacraft.assetstore.Entities.Controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
@@ -23,10 +24,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class AssetController {
 
   private final AssetService assetService;
-  private final AssetRepository assetRepository;
 
   @PostMapping("/upload")
-  public ResponseEntity<Asset> uploadAsset( // ResponseEntity : HTTP 응답을 나타내는 클래스
+  public String uploadAsset( // ResponseEntity : HTTP 응답을 나타내는 클래스
       @RequestParam("obj") String obj,
       @RequestParam("mtl") String mtl,
       @RequestParam("bd") String bd,
@@ -37,20 +37,24 @@ public class AssetController {
     System.out.println("bd: " + bd);
     System.out.println("files size: " + files.size());
 
+
+    
     try {
       Asset asset = assetService.uploadAsset(obj, mtl, bd, files);
-      
-      return ResponseEntity.ok(asset);
     } catch (Exception e) {
       e.printStackTrace();
-      return ResponseEntity.badRequest().build();
     }
-
+    return "redirect:/";
   }
 
   @GetMapping("/create")
-  public String EnteruploadAsset() {
+  public String enterCreateAssetPage() {
     return "createAsset";
+  }
+
+  @GetMapping("/list")
+  public String getMethodName(Principal principal) {
+    return "";
   }
 
 }

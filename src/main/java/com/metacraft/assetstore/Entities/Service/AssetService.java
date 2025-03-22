@@ -21,7 +21,6 @@ public class AssetService {
   
   private final AssetRepository assetRepo;
   private final S3Service s3Service;
-  private final ImageRepository imageRepo;
   // S3에 이미지 업로드하고, Asset과 Image 저장하는 로직
   public Asset uploadAsset(String obj, String mtl, String bd, List<MultipartFile> files) throws Exception {
     Asset asset = new Asset();
@@ -37,12 +36,10 @@ public class AssetService {
       Image image = new Image();
       image.setImageUrl(url);
       images.add(image);
-      imageRepo.save(image); // Image 저장
+      // imageRepo.save(image); // Image 저장
     }
-    System.out.println("id : "+asset.getId());
     asset.setImages(images);
     assetRepo.save(asset); // Asset 저장 -> 자동으로 이미지들도 저장됨
-    
     return asset;
   }
 }
