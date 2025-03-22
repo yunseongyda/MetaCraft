@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.metacraft.assetstore.Entities.Asset;
+import com.metacraft.assetstore.Entities.Repository.AssetRepository;
 import com.metacraft.assetstore.Entities.Service.AssetService;
 
 import lombok.RequiredArgsConstructor;
@@ -22,23 +23,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class AssetController {
 
   private final AssetService assetService;
+  private final AssetRepository assetRepository;
 
   @PostMapping("/upload")
   public ResponseEntity<Asset> uploadAsset( // ResponseEntity : HTTP 응답을 나타내는 클래스
-      @RequestParam String obj,
-      @RequestParam String mtl,
-      @RequestParam String bd,
-      @RequestParam("files") List<MultipartFile> files) {
+      @RequestParam("obj") String obj,
+      @RequestParam("mtl") String mtl,
+      @RequestParam("bd") String bd,
+      @RequestParam("images") List<MultipartFile> files) {
     // 디버깅
     System.out.println("obj: " + obj);
     System.out.println("mtl: " + mtl);
     System.out.println("bd: " + bd);
     System.out.println("files size: " + files.size());
 
-    // TODO: process POST request
-
     try {
       Asset asset = assetService.uploadAsset(obj, mtl, bd, files);
+      
       return ResponseEntity.ok(asset);
     } catch (Exception e) {
       e.printStackTrace();
