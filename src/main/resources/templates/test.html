@@ -1,0 +1,16 @@
+<html layout:decorate="~{layout}">
+<section layout:fragment="content">
+
+
+  <form th:action="@{/api/assets/upload}" method="POST" enctype="multipart/form-data">
+    <input type="text" name="obj">obj
+    <input type="text" name="mlt">mtl
+    <input type="text" name="bd">bd
+    <input type="file" name="files" multiple>images
+    <input type="submit" value="send">
+  </form>
+
+
+
+</section>
+</html>

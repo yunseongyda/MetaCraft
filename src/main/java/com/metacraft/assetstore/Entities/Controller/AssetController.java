@@ -31,11 +31,17 @@ public class AssetController {
       @RequestParam("mtl") String mtl,
       @RequestParam("bd") String bd,
       @RequestParam("images") List<MultipartFile> files) {
-    // 디버깅
-    System.out.println("obj: " + obj);
-    System.out.println("mtl: " + mtl);
-    System.out.println("bd: " + bd);
-    System.out.println("files size: " + files.size());
+      // 파일이 업로드되지 않는 경우
+      if (files == null || files.isEmpty()) {
+        System.out.println("The file was not uploaded");
+        return ResponseEntity.badRequest().body(null); // 클라이언트에게 잘못된 요청 응답
+      }
+
+      // 디버깅
+      System.out.println("obj: " + obj);
+      System.out.println("mtl: " + mtl);
+      System.out.println("bd: " + bd);
+      System.out.println("files size: " + files.size());
 
     try {
       Asset asset = assetService.uploadAsset(obj, mtl, bd, files);
