@@ -19,8 +19,4 @@ public class Image {
   private Integer id;
 
   private String imageUrl; // S3에 저장된 이미지 URL을 저장
-
-  @ManyToOne
-  @JoinColumn(name = "asset_id")
-  private Asset asset;
 }
