@@ -1,5 +1,5 @@
 <div th:fragment="model-createfragment" class="mx-0">
-  <div id="unity-container" class="unity-desktop p-3">
+  <div id="unity-container" class="unity-desktop">
     <canvas id="unity-canvas" width="100%" tabindex="-1"></canvas>
     <div id="unity-loading-bar">
       <div id="unity-logo"></div>
@@ -12,6 +12,12 @@
       <div id="unity-fullscreen-button"></div>
     </div>
   </div>
+  <form th:action="@{/api/assets/upload}" enctype="multipart/form-data" method="post" id ="assetForm" style="display: none;">
+    <input type="text" id="obj" name ="obj" style="display: none;">
+    <input type="text" id="bd" name="bd" style="display: none;">
+    <input type="text" id="mtl" name="mtl" style="display: none;">
+    <input type="file" id="imageInput" name="images" style="display: none;" multiple>
+  </form>
   <script layout:fragment="script">
 
     var container = document.querySelector("#unity-container");
@@ -83,9 +89,8 @@
     } else {
       // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-      canvas.style.width = "1280px";
-      canvas.style.height = "720px";
-      //canvas.style.height = "1280px";
+      canvas.style.width = "100%";
+      // canvas.style.height = "500px";
     }
 
     loadingBar.style.display = "block";
