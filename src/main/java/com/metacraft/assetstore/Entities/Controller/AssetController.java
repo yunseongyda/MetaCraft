@@ -44,7 +44,7 @@ public class AssetController {
     } catch (Exception e) {
       e.printStackTrace();
     }
-    return "redirect:/";
+    return "redirect:/api/assets/list";
   }
 
   @GetMapping("/create")
@@ -54,7 +54,7 @@ public class AssetController {
 
   @GetMapping("/list")
   public String getMethodName(Principal principal) {
-    return "";
+    return "asset-list";
   }
 
 }
