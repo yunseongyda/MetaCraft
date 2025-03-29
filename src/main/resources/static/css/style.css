@@ -30,6 +30,31 @@
 /* Template default CSS
 /*----------------------------------------*/
 /* 김효원이 바꾼거 */
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
 #unity-container {
 	display: flex;
 	justify-content: center;
@@ -126,7 +151,37 @@ body {
 	padding: 10px;
 	display: none
 }
+.asset-block{
+	width: 100%;
+	aspect-ratio: 4 / 3; 
+	background-color: #ccc;
+	display: inline-block;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	border-radius: 10px;
+}
 
+.asset-createButton{
+	
+	width: 100px;
+	height: 100px;
+	background-color: #ddd;
+	text-align: center;
+	border-radius: 100%;
+	position: absolute;
+	top : 30%;
+}
+.asset-block-text{
+	font-size: 50px;
+	font-weight: bold;
+	display: inline-block;
+	color: white;
+	position: absolute;
+	top : 31%;
+	left: 37%;
+}
 /* 김효원이 바꾼거 */
 html,
 body {

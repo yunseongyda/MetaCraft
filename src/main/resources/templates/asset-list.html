@@ -1,18 +1,19 @@
 <html layout:decorate="~{layout}">
 
 <div layout:fragment="content">
-  <div class="row">
-    <div class="col-12 col-md-6 col-lg-4">
-
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-
+  <div class="container my-5">
+    <h2 class="mb-2">Asset List</h2>
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4">
+        <a th:href="@{/api/assets/create}" class="asset-block">
+          <span class="asset-createButton">
+            <p class="asset-block-text">+</p>
+          </span>
+        </a>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        
+      </div>
     </div>
   </div>
 </div>
