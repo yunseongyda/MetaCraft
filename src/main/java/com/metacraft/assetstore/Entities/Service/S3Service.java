@@ -40,16 +40,19 @@ public class S3Service {
     for (MultipartFile file : files) {
       String fileName = dateFolder + System.currentTimeMillis() + "_" + file.getOriginalFilename();
 
-      // 메타데이터를 Map으로 설정
-      Map<String, String> metadata = new HashMap<>();
-      metadata.put("Content-Type", "image/png");
-      metadata.put("Cache-Control", "max-age=86400");
+      // // 메타데이터를 Map으로 설정
+      // Map<String, String> metadata = new HashMap<>();
+      // metadata.put("Content-Type", "image/png");
+      // metadata.put("Cache-Control", "max-age=86400");
 
       // PutObjectRequest 생성 (메타데이터 설정)
       PutObjectRequest putObjectRequest = PutObjectRequest.builder()
                                                           .bucket(bucketName)
                                                           .key(fileName)
-                                                          .metadata(metadata) // Map으로 메타데이터 설정
+                                                          .metadata(Map.of(
+                                                              "Content-Type", "image/png",
+                                                              "Cache-Control", "max-age=86400"
+                                                          )) // Map으로 메타데이터 설정
                                                           .build();
 
       // S3에 파일 업로드

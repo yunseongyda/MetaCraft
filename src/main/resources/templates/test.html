@@ -17,8 +17,7 @@
       <input type="submit" value="Search">
     </form>
 
-    <!-- 검색된 이미지 표시 -->
-    <!-- 검색된 이미지 표시 -->
+  <!-- 검색된 이미지 표시 -->
   <div>
     <p th:if="${imageUrls == null}">Enter an asset ID to search for images.</p>
     <p th:if="${imageUrls != null and imageUrls.isEmpty()}">No images found for this asset ID.</p>
@@ -34,5 +33,6 @@
   
 
 </section>
+
 <script src="/js/script.js" layout:fragment="script"></script>
 </html>
