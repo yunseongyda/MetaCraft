@@ -30,17 +30,16 @@ public class AssetController {
       @RequestParam("obj") String obj,
       @RequestParam("mtl") String mtl,
       @RequestParam("bd") String bd,
-      @RequestParam("images") List<MultipartFile> files) {
+      @RequestParam("images") List<MultipartFile> files,
+      @RequestParam("thumbnail") MultipartFile thumbnail) {
     // 디버깅
     System.out.println("obj: " + obj);
     System.out.println("mtl: " + mtl);
     System.out.println("bd: " + bd);
     System.out.println("files size: " + files.size());
 
-
-    
     try {
-      Asset asset = assetService.uploadAsset(obj, mtl, bd, files);
+      Asset asset = assetService.uploadAsset(obj, mtl, bd, files, thumbnail);
     } catch (Exception e) {
       e.printStackTrace();
     }
