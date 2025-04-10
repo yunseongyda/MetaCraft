@@ -38,5 +38,7 @@ public class Asset {
   @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Image> images; // 하나의 Asset이 여러 개의 이미지를 가질 수 있도록 설정
 
+  private String maker;
+
   //todo : 질감마다 얼마나 사용했느지 
 }
