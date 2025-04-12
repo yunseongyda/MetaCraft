@@ -1,7 +1,10 @@
 package com.metacraft.assetstore.Entities.Controller;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -57,6 +60,38 @@ public class AssetController {
   @GetMapping("/create")
   public String enterUploadAssetPage() {
     return "createAsset";
+  }
+
+  @GetMapping("obj")
+  public ResponseEntity<byte[]> downloadObj(@RequestParam("id") Integer assetId) {
+    Asset asset = assetService.findById(assetId); // AssetService에서 id로 조회하는 메서드 필요
+    String objText = asset.getObj(); // obj 문자열
+
+    byte[] objBytes = objText.getBytes(StandardCharsets.UTF_8);
+
+    HttpHeaders headers = new HttpHeaders();
+    headers.setContentType(MediaType.TEXT_PLAIN);
+    headers.setContentDispositionFormData("attachment", "model.obj");
+
+    return ResponseEntity.ok()
+            .headers(headers)
+            .body(objBytes);
+  }
+
+  @GetMapping("mtl")
+  public ResponseEntity<byte[]> downloadMtl(@RequestParam("id") Integer assetId) {
+    Asset asset = assetService.findById(assetId);
+    String mtlText = asset.getMtl();
+
+    byte[] mtlBytes = mtlText.getBytes(StandardCharsets.UTF_8);
+
+    HttpHeaders headers = new HttpHeaders();
+    headers.setContentType(MediaType.TEXT_PLAIN);
+    headers.setContentDispositionFormData("attachment", "model.mtl");
+
+    return ResponseEntity.ok()
+            .headers(headers)
+            .body(mtlBytes);
   }
 
 }

@@ -21,7 +21,7 @@
   <div>
     <p th:if="${imageUrls == null}">Enter an asset ID to search for images.</p>
     <p th:if="${imageUrls != null and imageUrls.isEmpty()}">No images found for this asset ID.</p>
-    <div th:if="${imageUrls != null}" id="imageContainer" th:data-urls="${imageUrls}">
+    <div th:if="${imageUrls != null}" id="imageContainer" th:data-urls="${imageUrls}" th:data-asset-id="${assetId}">
         <img th:each="url : ${imageUrls}" th:src="${url}" alt="Asset Image" style="width: 150px; margin: 10px;">
     </div>
   </div>
