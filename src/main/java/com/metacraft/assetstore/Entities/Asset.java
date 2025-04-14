@@ -33,6 +33,10 @@ public class Asset {
   @Column(columnDefinition = "TEXT", length=999999999)
   private String bd;
 
+  //에셋 이름
+  @Size(max = 100, message = "이름은 100자 이내로 입력해주세요.")
+  private String name;
+
   // @Version
   // private Integer version;
 

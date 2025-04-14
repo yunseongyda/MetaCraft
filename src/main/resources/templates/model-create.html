@@ -12,12 +12,24 @@
       <div id="unity-fullscreen-button"></div>
     </div>
   </div>
-  <form th:action="@{/api/assets/upload}" enctype="multipart/form-data" method="post" id ="assetForm" style="display: none;">
+  <form th:action="@{/api/assets/upload}" enctype="multipart/form-data" class="mt-5" method="post" id ="assetForm">
     <input type="text" id="obj" name ="obj" style="display: none;">
     <input type="text" id="bd" name="bd" style="display: none;">
     <input type="text" id="mtl" name="mtl" style="display: none;">
     <input type="file" id="imageInput" name="images" style="display: none;" multiple>
-    <input type="file" id="thumbnailInput" name="thumbnail" style="display: none;">
-    <input type="file" id="thumbnail" name="thumbnail" style="display: none;">
+    <div class=" container">
+      <div class="row">
+        <div class="col-12 col-md-10">
+          <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+        </div>
+        <div class="col-12 col-md-2">
+          <label for="thumbnailInput" class="form-control" id="thumbnailLabel">
+            썸네일 업로드
+          </label>
+          <input type="file" id="thumbnailInput" name="thumbnail" style="display: none;">
+        </div>
+      </div>
+    </div>
+    
   </form>
 </div>
