@@ -12,8 +12,8 @@
       <div id="unity-fullscreen-button"></div>
     </div>
   </div>
-  <form th:action="@{/api/assets/upload}" enctype="multipart/form-data" class="mt-5" method="post" id ="assetForm">
-    <input type="text" id="obj" name ="obj" style="display: none;">
+  <form th:action="@{/api/assets/upload}" enctype="multipart/form-data" class="mt-5" method="post" id="assetForm">
+    <input type="text" id="obj" name="obj" style="display: none;">
     <input type="text" id="bd" name="bd" style="display: none;">
     <input type="text" id="mtl" name="mtl" style="display: none;">
     <input type="file" id="imageInput" name="images" style="display: none;" multiple>
@@ -30,6 +30,24 @@
         </div>
       </div>
     </div>
-    
+
   </form>
+  <script>
+    document.addEventListener('keydown', function (e) {
+      const activeElement = document.activeElement;
+      console.log(activeElement.id);
+      // 만약 포커스가 input 필드에 있을 때만 동작하도록 설정
+      if (activeElement.tagName.toLowerCase() === "input") {
+        if (e.key === "Backspace") {
+          // 백스페이스 처리
+          const currentValue = activeElement.value;
+          const newValue = currentValue.slice(0, currentValue.length - 1);
+          activeElement.value = newValue;
+        }
+      } else {
+        // 포커스가 input이 아닐 경우 입력 차단
+        e.preventDefault(); // 키 입력 차단
+      }
+    });
+  </script>
 </div>
