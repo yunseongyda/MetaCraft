@@ -53,7 +53,7 @@ public class Product {
 	@ManyToOne
 	private SiteUser siteUser;
 	
-	@OneToMany(mappedBy = "asset")
+	@OneToMany(mappedBy = "product")
 	private List<Review> comments;
 
 	@ManyToMany

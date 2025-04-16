@@ -26,7 +26,6 @@ public class SecurityConfig {
         .defaultSuccessUrl("/"))
 				.logout((logout) -> logout.logoutRequestMatcher(new AntPathRequestMatcher("/siteuser/signout")).logoutSuccessUrl("/").invalidateHttpSession(true));
 		http.csrf().disable();
-		http.authorizeHttpRequests().anyRequest().permitAll();
 		return http.build();
 	}
 

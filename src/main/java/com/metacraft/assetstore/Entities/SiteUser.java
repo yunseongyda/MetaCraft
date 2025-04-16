@@ -29,8 +29,12 @@ public class SiteUser {
 	private String password;
 	
 	@OneToMany(mappedBy = "siteUser")
-	private List<Product> assets;
-	
+	private List<Product> products;
+
+	@OneToMany(mappedBy = "siteUser")
+	private List<Asset> assets;
+
+
 	@OneToMany(mappedBy = "siteUser")
 	private List<Review> comments;
   
