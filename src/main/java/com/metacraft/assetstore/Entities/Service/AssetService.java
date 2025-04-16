@@ -20,9 +20,10 @@ import lombok.RequiredArgsConstructor;
 public class AssetService {
   
   private final AssetRepository assetRepo;
+  private final ImageRepository imageRepo;
   private final S3Service s3Service;
   // S3에 이미지 업로드하고, Asset과 Image 저장하는 로직
-  public Asset uploadAsset(String obj, String mtl, String bd, List<MultipartFile> files) throws Exception {
+  public Asset uploadAsset(String obj, String mtl, String bd, List<MultipartFile> files, MultipartFile thumbnail) throws Exception {
     Asset asset = new Asset();
     System.out.println(asset != null);
     asset.setObj(obj);
@@ -31,7 +32,6 @@ public class AssetService {
     
     List<String> fileUrls = s3Service.uploadFiles(files);
     List<Image> images = new ArrayList<>();
-
     for (String url : fileUrls) {
       Image image = new Image();
       image.setImageUrl(url);
@@ -40,6 +40,13 @@ public class AssetService {
     }
     asset.setImages(images);
     assetRepo.save(asset); // Asset 저장 -> 자동으로 이미지들도 저장됨
+    
+    //썸네일 업로드
+    Image thumbnailImage = new Image();
+    String thumbnailUrl = s3Service.uploadThumbnail(thumbnail); // 썸네일 업로드
+    thumbnailImage.setImageUrl(thumbnailUrl);
+    imageRepo.save(thumbnailImage); // 썸네일 이미지 저장
+    asset.setThumbnail(thumbnailImage); // Asset에 썸네일 설정
     return asset;
   }
 }

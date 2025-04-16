@@ -182,6 +182,10 @@ body {
 	top : 31%;
 	left: 37%;
 }
+.form-control-fileButton{
+	background-color: #fff;
+	
+}
 /* 김효원이 바꾼거 */
 html,
 body {
