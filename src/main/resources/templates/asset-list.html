@@ -14,7 +14,8 @@
       <div class="col-12 col-md-6 col-lg-4 mb-4" th:each="asset : ${assets}">
         <div class="asset-block">
           <div class="dropdown asset-dropdown">
-            <button class="btn btn-secondary dropdown-toggle no-caret asset-dropdown-button" type="button" data-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle no-caret asset-dropdown-button" type="button"
+              data-toggle="dropdown" aria-expanded="false">
               ⋮
             </button>
             <div class="dropdown-menu">
@@ -23,15 +24,19 @@
               <a class="dropdown-item" type="button">Remove</a>
             </div>
           </div>
-          <img th:src="${asset.thumbnail.imageUrl}" alt="">
+          <div th:if="${asset.thumbnail != null}">
+            <img th:src="${asset.thumbnail.imageUrl}" alt="썸네일">
+          </div>
         </div>
+
         <form th:action="@{/api/assets/edit-meta}" class="row mt-1" method="post" enctype="multipart/form-data">
           <input type="hidden" th:value="${asset.id}" name="id">
           <div class="col-6">
             <input type="text" class="form-control" name="assetName" th:value="${asset.name}">
           </div>
           <div class="col-3 form-control text-center">
-            <label for="thumbnail" class="font-smaller d-flex justify-content-center align-items-center" style="height: 100%; cursor: pointer;">
+            <label for="thumbnail" class="font-smaller d-flex justify-content-center align-items-center"
+              style="height: 100%; cursor: pointer;">
               mod thumbnail
             </label>
             <input type="file" class="form-control-file" name="thumbnail" style="display: none;" id="thumbnail">
