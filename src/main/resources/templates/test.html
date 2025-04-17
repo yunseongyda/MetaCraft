@@ -10,7 +10,29 @@
     <input type="submit" value="send">
   </form>
 
+  <!-- 에셋 ID로 이미지 검색 -->
+  <div class="getImg">
+    <form th:action="@{/test/searchImage}" method="get">
+      <input type="text" name="num" placeholder="Enter the asset ID">
+      <input type="submit" value="Search">
+    </form>
 
+  <!-- 검색된 이미지 표시 -->
+  <div>
+    <p th:if="${imageUrls == null}">Enter an asset ID to search for images.</p>
+    <p th:if="${imageUrls != null and imageUrls.isEmpty()}">No images found for this asset ID.</p>
+    <div th:if="${imageUrls != null}" id="imageContainer" th:data-urls="${imageUrls}">
+        <img th:each="url : ${imageUrls}" th:src="${url}" alt="Asset Image" style="width: 150px; margin: 10px;">
+    </div>
+  </div>
+
+  <!-- download image -->
+  <section>
+    <button class="btn btn-primary" onclick="downloadImagesAsZip()">download image</button>
+  </section>
+  
 
 </section>
+
+<script src="/js/script.js" layout:fragment="script"></script>
 </html>
