@@ -55,7 +55,7 @@
       <div class="form h-100 contact-wrap p-5 shadow-lg p-3 mb-5 bg-white rounded">
         <h3 class="text-center">Inquire</h3>
         <div sec:authorize="isAuthenticated()">
-          <form th:action="@{/contact/send}" method="post" id="contactForm" name="contactForm">
+          <form th:action="@{/inquire/send}" method="post" id="contactForm" name="contactForm">
             <div class="row">
               <div class="col-md-12 form-group mb-3">
                 <label for="" class="col-form-label">Email</label>

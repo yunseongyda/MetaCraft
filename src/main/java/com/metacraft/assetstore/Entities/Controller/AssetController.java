@@ -21,6 +21,8 @@ import lombok.RequiredArgsConstructor;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @Controller
 @RequestMapping("/api/assets")
@@ -29,6 +31,7 @@ public class AssetController {
 
   private final AssetService assetService;
   private final SiteUserService userService;
+  private final AssetRepository assetRepo;  
 
   @PostMapping("/upload")
   public String uploadAsset( // ResponseEntity : HTTP 응답을 나타내는 클래스
@@ -36,15 +39,17 @@ public class AssetController {
       @RequestParam("mtl") String mtl,
       @RequestParam("bd") String bd,
       @RequestParam("images") List<MultipartFile> files,
-      @RequestParam("thumbnail") MultipartFile thumbnail) {
+      Principal principal) {
     // 디버깅
     System.out.println("obj: " + obj);
     System.out.println("mtl: " + mtl);
     System.out.println("bd: " + bd);
     System.out.println("files size: " + files.size());
-
+    SiteUser user = userService.getSiteUser(principal.getName());
     try {
-      Asset asset = assetService.uploadAsset(obj, mtl, bd, files, thumbnail);
+      Asset asset = assetService.uploadAsset(obj, mtl, bd, files);
+      asset.setSiteUser(user); // Asset에 SiteUser 설정
+      assetRepo.save(asset); // Asset 저장
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -65,5 +70,22 @@ public class AssetController {
     model.addAttribute("assets", assets);
     return "asset-list";
   }
-
+  //이름과 썸네일을 바꿔는 함수입니다.
+  @PostMapping("/edit-meta")
+  public String editMeta(@RequestParam("id") Integer id,
+                         @RequestParam("assetName") String name,
+                         @RequestParam("thumbnail") MultipartFile thumbnail) {
+      //TODO: process POST request
+      Asset asse = assetService.getAsset(id); // Asset의 이름 변경
+      asse.setName(name);
+      try{
+        assetService.uploadThumbnail(asse, thumbnail);
+        assetRepo.save(asse); // Asset 저장
+      } catch (Exception e) {
+        // TODO: handle exception
+        e.printStackTrace();
+      }
+      return "redirect:/api/assets/list"; // Redirect to the asset list page after processing 
+  }
+  
 }

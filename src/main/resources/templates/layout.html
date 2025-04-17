@@ -7,10 +7,12 @@
   <meta name="keywords" content="Ogani, unica, creative, html">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  
+
   <title>MetaCraft | AssetStore</title>
   <!-- 구글 아이콘 폰트 사용을 위한 링크 태그 -->
-  <link href="https://fonts.google.com/icons?icon.set=Material+Icons&selected=Material+Icons+Outlined:add_circle_outline:&icon.query=plus&icon.size=24&icon.color=%231f1f1f&icon.platform=web" rel="stylesheet">
+  <link
+    href="https://fonts.google.com/icons?icon.set=Material+Icons&selected=Material+Icons+Outlined:add_circle_outline:&icon.query=plus&icon.size=24&icon.color=%231f1f1f&icon.platform=web"
+    rel="stylesheet">
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
@@ -25,22 +27,24 @@
   <link rel="stylesheet" href="/css/style.css" type="text/css">
 
   <!-- Favicon -->
-  <link rel="icon" href="/img/favicon.ico"/>
+  <link rel="icon" href="/img/favicon.ico" />
 </head>
+
 <body>
-    <nav th:replace="~{navbar :: navbarFragment}"></nav>
-    <!--기본 템플릿 안에 삽입될 내용-->
-    <th:block layout:fragment="content"></th:block>
-    <footer th:replace="~{footer :: footerFragment}"></footer>
-      <!-- Js Plugins -->
-      <script src="/js/jquery-3.3.1.min.js"></script>
-      <script src="/js/jquery.nice-select.min.js"></script>
-      <script src="/js/bootstrap.min.js"></script>
-      <script src="/js/jquery-ui.min.js"></script>
-      <script src="/js/jquery.slicknav.js"></script>
-      <script src="/js/mixitup.min.js"></script>
-      <script src="/js/owl.carousel.min.js"></script>
-      <script src="/js/main.js"></script>
+  <nav th:replace="~{navbar :: navbarFragment}"></nav>
+  <!--기본 템플릿 안에 삽입될 내용-->
+  <th:block layout:fragment="content"></th:block>
+  <footer th:replace="~{footer :: footerFragment}"></footer>
+  <!-- Js Plugins -->
+  <script src="/js/jquery-3.3.1.min.js"></script>
+  <script src="/js/jquery.nice-select.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/jquery-ui.min.js"></script>
+  <script src="/js/jquery.slicknav.js"></script>
+  <script src="/js/mixitup.min.js"></script>
+  <script src="/js/owl.carousel.min.js"></script>
+  <script src="/js/main.js"></script>
 
   <th:block layout:fragment="script"></th:block>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
