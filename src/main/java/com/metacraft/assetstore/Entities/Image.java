@@ -1,5 +1,6 @@
 package com.metacraft.assetstore.Entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,4 +20,7 @@ public class Image {
   private Integer id;
 
   private String imageUrl; // S3에 저장된 이미지 URL을 저장
+  
+  @ManyToOne
+  private Asset asset; // Asset과의 관계 설정
 }
