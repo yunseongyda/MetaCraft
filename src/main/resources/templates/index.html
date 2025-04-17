@@ -47,14 +47,21 @@
               </div>
             </div>
           </div>
-          <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
+          <div class="hero__item set-bg pl-0 video-container">
+            <!-- 🎥 영상 -->
+            <video class="big-vid" width="1000px" autoplay muted loop controls>
+              <source src="img/hero/bannerVideo.mp4" type="video/mp4">
+            </video>
+          
+            <!-- ✨ 영상 위에 뜨는 텍스트는 video 바깥! -->
             <div class="hero__text">
               <span>FRUIT FRESH</span>
-              <h2>Vegetable <br />100% Organic</h2>
+              <h2 class="bg-primary">Vegetable <br />100% Organic</h2>
               <p>Free Pickup and Delivery Available</p>
-              <a th:href="@{|/test/lab|}" class="primary-btn">SHOP NOW</a>
+              <a th:href="@{|/api/assets/create|}" class="primary-btn">CREATE NOW</a>
             </div>
           </div>
+          
         </div>
       </div>
     </div>

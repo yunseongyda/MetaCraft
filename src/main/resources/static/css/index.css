@@ -1,0 +1,21 @@
+.video-container {
+  position: relative;
+  width: 1000px; /* 또는 100% */
+  max-width: 100%;
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.video-container .hero__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white; /* 필요 시 */
+  text-align: center;
+  z-index: 2;
+}
