@@ -45,11 +45,18 @@ public class AssetService {
   public Asset getAsset(Integer id) {
     return assetRepo.findById(id).orElse(null);
   }
+  
   public void uploadThumbnail(Asset asset, MultipartFile thumbnail) throws Exception {
-    Image thumbnailImage = new Image();
+    Image thumbnailImage;
+    if (asset.getThumbnail() != null) { // 썸네일이 이미 존재하는 경우
+      thumbnailImage = asset.getThumbnail(); // 기존 썸네일 가져오기
+    } else { // 썸네일이 존재하지 않는 경우
+      thumbnailImage = new Image(); // 새로운 썸네일 이미지 생성
+    }
     String thumbnailUrl = s3Service.uploadThumbnail(thumbnail); // 썸네일 업로드
     thumbnailImage.setImageUrl(thumbnailUrl);
     imageRepo.save(thumbnailImage); // 썸네일 이미지 저장
+    System.out.println(thumbnailUrl);
     asset.setThumbnail(thumbnailImage); // Asset에 썸네일 설정
     assetRepo.save(asset); // Asset 저장
   }

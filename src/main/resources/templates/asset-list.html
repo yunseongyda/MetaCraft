@@ -35,11 +35,11 @@
             <input type="text" class="form-control" name="assetName" th:value="${asset.name}">
           </div>
           <div class="col-3 form-control text-center">
-            <label for="thumbnail" class="font-smaller d-flex justify-content-center align-items-center"
+            <label th:for="@{|thumbnail_${asset.id}|}" class="font-smaller d-flex justify-content-center align-items-center"
               style="height: 100%; cursor: pointer;">
               mod thumbnail
             </label>
-            <input type="file" class="form-control-file" name="thumbnail" style="display: none;" id="thumbnail">
+            <input type="file" class="form-control-file" name="thumbnail" style="display: none;" th:id="@{|thumbnail_${asset.id}|}">
           </div>
           <div class="col-3">
             <input type="submit" class="btn btn-primary" value="save">

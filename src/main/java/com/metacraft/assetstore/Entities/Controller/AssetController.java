@@ -17,6 +17,7 @@ import com.metacraft.assetstore.Entities.Repository.AssetRepository;
 import com.metacraft.assetstore.Entities.Service.AssetService;
 import com.metacraft.assetstore.Entities.Service.SiteUserService;
 
+import groovyjarjarantlr4.v4.parse.ANTLRParser.elementOptions_return;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -79,7 +80,12 @@ public class AssetController {
       Asset asse = assetService.getAsset(id); // Asset의 이름 변경
       asse.setName(name);
       try{
-        assetService.uploadThumbnail(asse, thumbnail);
+         if (thumbnail != null && !thumbnail.isEmpty()) {
+          System.out.println(thumbnail.getOriginalFilename());
+          assetService.uploadThumbnail(asse, thumbnail); // 썸네일 업로드
+        } else {
+          System.out.println("썸넬이 비어있음");
+        }
         assetRepo.save(asse); // Asset 저장
       } catch (Exception e) {
         // TODO: handle exception

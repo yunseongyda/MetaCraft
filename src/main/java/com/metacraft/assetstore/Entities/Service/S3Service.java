@@ -74,7 +74,9 @@ public class S3Service {
 
     // 메타데이터를 Map으로 설정
     Map<String, String> metadata = new HashMap<>();
-    metadata.put("Content-Type", "image/png");
+    String contentType = thumbnail.getContentType(); // 예: "image/jpeg"
+    System.out.println("썸넬 이름 : "+thumbnail.getOriginalFilename());
+    metadata.put("Content-Type", contentType);
     metadata.put("Cache-Control", "max-age=86400");
 
     // PutObjectRequest 생성 (메타데이터 설정)
