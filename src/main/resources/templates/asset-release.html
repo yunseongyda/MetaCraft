@@ -1,0 +1,53 @@
+<html layout:decorate="~{layout}">
+<div class="container" layout:fragment="content">
+  <form th:action="@{/api/assets/release}" th:object="${createProductForm}" method="post">
+    <div class="row">
+      <div class="col-12 col-md-4 row">
+        <div class="col-12">
+          <label for="productName" class="col-form-label">Product name</label>
+          <input type="text" class="form-control bottom-border" th:field="*{subject}" id="productName"
+            placeholder="Product Name">
+        </div>
+        <div class="col-12">
+          <label th:for="*{introduction}" class="col-form-label">Introduction</label>
+          <textarea th:field="*{introduction}" cols="30" rows="3" class="form-control bottom-border"
+            placeholder="Introduction"></textarea>
+        </div>
+
+
+        <div class="col-12">
+          <label th:for="*{description}" class="col-form-label">Description</label>
+          <textarea th:field="*{description}" cols="30" rows="5" class="form-control bottom-border"
+            placeholder="Description"></textarea>
+        </div>
+
+        <div class="col-12">
+          <label th:for="*{price}" class="col-form-label">Price($)</label>
+          <input type="number" class="form-control bottom-border" th:field="*{price}" placeholder="Price">
+        </div>
+
+        <div class="col-12">
+          <label th:for="*{category}" class="col-form-label">Category</label>
+        </div>
+        <div class="col-12">
+          <select th:field="*{category}" class="form-control w-100p">
+            <option value="1">Category 1</option>
+            <option value="2">Category 2</option>
+            <option value="3">Category 3</option>
+            <option value="4">Category 4</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <input type="submit" class="btn btn-primary my-3" value="Release">
+        </div>
+      </div>
+
+      <div class="col-12 col-md-8">
+        todo :여기에는 asset이 어떻게 생겼는지 보여줘야함
+      </div>
+
+    </div>
+  </form>
+</div>
+
+</html>
