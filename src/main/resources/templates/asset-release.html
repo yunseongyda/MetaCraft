@@ -14,7 +14,6 @@
             placeholder="Introduction"></textarea>
         </div>
 
-
         <div class="col-12">
           <label th:for="*{description}" class="col-form-label">Description</label>
           <textarea th:field="*{description}" cols="30" rows="5" class="form-control bottom-border"
@@ -43,11 +42,12 @@
       </div>
 
       <div class="col-12 col-md-8">
-        todo :여기에는 asset이 어떻게 생겼는지 보여줘야함
+        <div th:replace="~{asset-specte :: Specte}"></div>
       </div>
 
     </div>
   </form>
 </div>
+<script layout:fragment="script" src="/js/unity.js"></script>
 
 </html>
