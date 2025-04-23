@@ -49,7 +49,6 @@
     </div>
   </form>
 </div>
-<script layout:fragment="script" src="/js/unity.js"></script>
 <script layout:fragment="script1">
   window.addEventListener('keydown', function (e) {
     const active = document.activeElement;
@@ -58,7 +57,22 @@
       e.stopImmediatePropagation();
     }
   }, true);
+  window.addEventListener("keypress", function (e) {
+  const active = document.activeElement;
+  if (active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA")) {
+    e.stopImmediatePropagation();
+  }
+}, true);
+
+window.addEventListener("keyup", function (e) {
+  const active = document.activeElement;
+  if (active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA")) {
+    e.stopImmediatePropagation();
+  }
+}, true);
 </script>
+<script layout:fragment="script" src="/js/unity.js"></script>
+
 </script>
 
 </html>
