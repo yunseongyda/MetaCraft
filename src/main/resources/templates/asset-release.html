@@ -45,9 +45,20 @@
         <div th:replace="~{asset-specte :: Specte}"></div>
       </div>
 
+
     </div>
   </form>
 </div>
 <script layout:fragment="script" src="/js/unity.js"></script>
+<script layout:fragment="script1">
+  window.addEventListener('keydown', function (e) {
+    const active = document.activeElement;
+    if (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA') {
+      // Unity로 키 이벤트 안 넘어가게 막음
+      e.stopImmediatePropagation();
+    }
+  }, true);
+</script>
+</script>
 
 </html>
