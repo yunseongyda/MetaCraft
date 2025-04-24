@@ -20,4 +20,14 @@ public class ProductController {
   public String ProductInfo(){
     return "shop-details";
   }
+
+  @GetMapping("/list")
+  public String ProductList(){
+    return "shop-grid";
+  }
+
+  @GetMapping("/char")
+  public String ProductChar(){
+    return "shop-characteristics";
+  }
 }
