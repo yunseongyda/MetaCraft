@@ -1,13 +1,12 @@
-<html lang="zxx" layout:decorate="~{layout}" layout:fragment="content">
+<html layout:decorate="~{layout}" layout:fragment="content">
 <!-- Product Details Section Begin -->
 <section class="product-details spad">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6">
-                <div class="product__details__pic">
-                    <div class="product__details__pic__item">
-                        <img class="product__details__pic__item--large" src="/img/product/details/product-details-1.jpg"
-                            alt="">
+                <div>
+                    <div>
+                        <!-- <div th:replace="~{asset-specte :: Specte}"></div> -->
                     </div>
                     <div class="product__details__pic__slider owl-carousel">
                         <img data-imgbigurl="/img/product/details/product-details-2.jpg"
@@ -77,7 +76,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
-                                aria-selected="false">Reviews <span>(1)</span></a>
+                                aria-selected="false">Reviews<span th:if="${product.comments != null}">([[${product.comments.size()}]])</span><a>
                         </li>
                     </ul>
                     <div class="tab-content">
@@ -96,16 +95,34 @@
                         <div class="tab-pane" id="tabs-3" role="tabpanel">
                             <div class="product__details__tab__desc">
                                 <h6>Products Reviews</h6>
-                                <form th:action="@{|/product/comment|}">
+                                <form th:action="@{|/product/comment/${product.id}|}" class="row mb-5" method="post">
+                                    <div class="col-10">
+                                        <input type="text" class="form form-control" placeholder="Enter comment"
+                                            name="commnet">
+                                    </div>
+                                    <div class="col-2">
+                                        <input type="submit" class="btn btn-primary" value="Submit">
+                                    </div>
 
                                 </form>
+                                <hr>
+                                <div th:if="${product.comments != null}">
+                                    <div th:each="comment : ${product.comments}">
+                                        <div class="row mb-3">
+                                            <div class="col-2">
+                                                [[${comment.siteUser.userName}]]
+                                            </div>
+                                            <div class="col-10">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 </section>
 <!-- Product Details Section End -->
 

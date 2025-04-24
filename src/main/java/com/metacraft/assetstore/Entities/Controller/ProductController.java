@@ -22,6 +22,6 @@ public class ProductController {
   public String ProductInfo(@PathVariable("p_id")Integer id, Model model){
     Product product = productService.getProduct(id);
     model.addAttribute("product", product);
-    return "shop-details";
+    return "product-details";
   }
 }

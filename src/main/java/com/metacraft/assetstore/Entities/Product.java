@@ -49,7 +49,7 @@ public class Product {
 
 	@OneToOne
 	private Asset modelAsset;
-
+	
 	@ManyToOne
 	private SiteUser siteUser;
 	
