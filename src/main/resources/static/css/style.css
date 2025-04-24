@@ -79,7 +79,11 @@ body {
 	width: 100%;
 	aspect-ratio: 16 / 7;
 }
-
+.spectate-ratio{
+	background: var(--darkblue);
+	width: 100%;
+	aspect-ratio: 16 / 12 !important;
+}
 .unity-mobile #unity-canvas {
 	width: 100%;
 	height: 100%
@@ -155,8 +159,8 @@ body {
 	display: none
 }
 .asset-block{
+	aspect-ratio: 4 / 3;
 	width: 100%;
-	aspect-ratio: 4 / 3; 
 	background-color: #ccc;
 	display: inline-block;
 	justify-content: center;
@@ -166,7 +170,11 @@ body {
 	border-radius: 10px;
 	position: relative;
 }
-
+.asset-thumbnail{
+	aspect-ratio: 4 / 3;
+	width: 100%;
+	border-radius: 10px;
+}
 .asset-createButton{
 	
 	width: 100px;
@@ -209,6 +217,10 @@ body {
 	align-items: center;
 	border: none;
 	color: black;
+}
+
+.w-100p{
+	width: 100%;
 }
 /* 김효원이 바꾼거 */
 html,

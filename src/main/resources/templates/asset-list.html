@@ -19,13 +19,16 @@
               ⋮
             </button>
             <div class="dropdown-menu">
-              <a class="dropdown-item" type="button">Release</a>
+              <a th:href="@{|/api/assets/release/${asset.id}|}" class="dropdown-item" type="button">Release</a>
               <a class="dropdown-item" type="button">Modify</a>
               <a class="dropdown-item" type="button">Remove</a>
             </div>
           </div>
           <div th:if="${asset.thumbnail != null}">
-            <img th:src="${asset.thumbnail.imageUrl}" alt="썸네일">
+            <img th:src="${asset.thumbnail.imageUrl}" alt="썸네일" class="asset-thumbnail">
+          </div>
+          <div th:if="${asset.thumbnail == null}">
+            <img src="/img/default.png" alt="썸네일" class="asset-thumbnail">
           </div>
         </div>
 
@@ -35,11 +38,13 @@
             <input type="text" class="form-control" name="assetName" th:value="${asset.name}">
           </div>
           <div class="col-3 form-control text-center">
-            <label th:for="@{|thumbnail_${asset.id}|}" class="font-smaller d-flex justify-content-center align-items-center"
+            <label th:for="@{|thumbnail_${asset.id}|}"
+              class="font-smaller d-flex justify-content-center align-items-center"
               style="height: 100%; cursor: pointer;">
               mod thumbnail
             </label>
-            <input type="file" class="form-control-file" name="thumbnail" style="display: none;" th:id="@{|thumbnail_${asset.id}|}">
+            <input type="file" class="form-control-file" name="thumbnail" style="display: none;"
+              th:id="@{|thumbnail_${asset.id}|}">
           </div>
           <div class="col-3">
             <input type="submit" class="btn btn-primary" value="save">
