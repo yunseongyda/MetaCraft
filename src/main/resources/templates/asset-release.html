@@ -1,6 +1,7 @@
 <html layout:decorate="~{layout}">
 <div class="container" layout:fragment="content">
-  <form th:action="@{/api/assets/release}" th:object="${createProductForm}" method="post">
+  <form th:action="@{|/api/assets/release/${asset.id}|}" th:object="${createProductForm}" method="post">
+    <div th:replace="~{form-errors :: formErrorsFragment}"></div>
     <div class="row">
       <div class="col-12 col-md-4 row">
         <div class="col-12">
@@ -30,10 +31,10 @@
         </div>
         <div class="col-12">
           <select th:field="*{category}" class="form-control w-100p">
-            <option value="1">Category 1</option>
-            <option value="2">Category 2</option>
-            <option value="3">Category 3</option>
-            <option value="4">Category 4</option>
+            <option value="Category1">Category 1</option>
+            <option value="Category2">Category 2</option>
+            <option value="Category3">Category 3</option>
+            <option value="Category4">Category 4</option>
           </select>
         </div>
         <div class="col-12">

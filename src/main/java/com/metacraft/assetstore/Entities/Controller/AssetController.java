@@ -2,6 +2,7 @@ package com.metacraft.assetstore.Entities.Controller;
 
 import java.nio.charset.StandardCharsets;
 import java.security.Principal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.http.HttpHeaders;
@@ -16,13 +17,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.metacraft.assetstore.Entities.Asset;
+import com.metacraft.assetstore.Entities.Product;
 import com.metacraft.assetstore.Entities.SiteUser;
 import com.metacraft.assetstore.Entities.Form.CreateProductForm;
 import com.metacraft.assetstore.Entities.Repository.AssetRepository;
 import com.metacraft.assetstore.Entities.Service.AssetService;
+import com.metacraft.assetstore.Entities.Service.ProductService;
 import com.metacraft.assetstore.Entities.Service.SiteUserService;
 
 import groovyjarjarantlr4.v4.parse.ANTLRParser.elementOptions_return;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,6 +42,7 @@ public class AssetController {
   private final AssetService assetService;
   private final SiteUserService userService;
   private final AssetRepository assetRepo;
+  private final ProductService productService;
 
   @PostMapping("/upload")
   public String uploadAsset( // ResponseEntity : HTTP 응답을 나타내는 클래스
@@ -135,20 +140,35 @@ public class AssetController {
     }
     return "redirect:/api/assets/list"; // Redirect to the asset list page after processing
   }
-
+  @PreAuthorize("isAuthenticated()")
   @GetMapping("release/{id}")
-  public String releaseAsset(@PathVariable("id") Integer id,CreateProductForm createProductForm, Model model) {
+  public String releaseAsset(@PathVariable("id") Integer id,CreateProductForm createProductForm, Model model, Principal principal) {
+
     Asset asset = assetService.getAsset(id); // Asset 조회
+    SiteUser user = userService.getSiteUser(principal.getName()); // 현재 사용자 조회
+    if (asset.getSiteUser() != user)
+      return "redirect:/api/assets/list"; // Asset의 소유자가 아닌 경우 리다이렉트
     model.addAttribute("asset", asset); // Asset bd를 모델에 추가
     createProductForm.setSubject(asset.getName()); // Asset을 폼에 설정
     return "asset-release";
   }
 
   @PostMapping("release/{id}")
-  public String releaseAsset(@PathVariable("id") Integer id, CreateProductForm createProductForm, BindingResult bindingResult, Model model) {
+  public String releaseAsset(@PathVariable("id") Integer id, 
+  @Valid CreateProductForm createProductForm,
+  BindingResult bindingResult, Model model) {
     Asset asset = assetService.getAsset(id); // Asset 조회
-    createProductForm.setSubject(asset.getName()); // Asset을 폼에 설정
-    model.addAttribute("asset", asset);
+    if (bindingResult.hasErrors()) {
+      model.addAttribute("asset", asset); // Asset bd를 모델에 추가
+      return "asset-release"; // Return to the form if there are validation errors
+    }
+    
+    productService.createProduct(asset, createProductForm.getSubject(),
+      createProductForm.getIntroduction(),
+      createProductForm.getDescription(),
+      createProductForm.getCategory(),
+      createProductForm.getPrice()); // Product 생성
+
     return "redirect:/"; // Redirect to the index page after processing
   }
 }
