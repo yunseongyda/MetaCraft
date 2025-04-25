@@ -25,9 +25,9 @@
                     <h3>[[${product.subject}]]</h3>
                     <div class="product__details__rating">
                         <i class="fa fa-star"></i>
-                        <span th:if="${product.reviews != null}">x[[${product.}]]</span>
+                        <span th:if="${product.comments != null}">x0</span>
                         <span th:if="${product.comments != null}">
-                            <span th:text="@{|(${product.comments.size()})|}"></span>
+                            <!-- <span th:text="@{|(${product.comments.size()})|}"></span> -->
                         </span>
                     </div>
                     <div class="product__details__price">[[${product.price}]]</div>
@@ -200,5 +200,29 @@
     </div>
 </section>
 <!-- Related Product Section End -->
-
+<script layout:fragment="script1">
+    window.addEventListener('keydown', function (e) {
+      const active = document.activeElement;
+      if (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA') {
+        // Unity로 키 이벤트 안 넘어가게 막음
+        e.stopImmediatePropagation();
+      }
+    }, true);
+    window.addEventListener("keypress", function (e) {
+    const active = document.activeElement;
+    if (active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA")) {
+      e.stopImmediatePropagation();
+    }
+  }, true);
+  
+  window.addEventListener("keyup", function (e) {
+    const active = document.activeElement;
+    if (active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA")) {
+      e.stopImmediatePropagation();
+    }
+  }, true);
+  </script>
+  <script layout:fragment="script" src="/js/unity.js"></script>
+  
+  </script>
 </html>
