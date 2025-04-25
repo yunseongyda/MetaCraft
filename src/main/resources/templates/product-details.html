@@ -5,8 +5,8 @@
         <div class="row">
             <div class="col-lg-6 col-md-6">
                 <div>
-                    <div>
-                        <!-- <div th:replace="~{asset-specte :: Specte}"></div> -->
+                    <div class="mb-3">
+                        <div th:replace="~{asset-specte :: Specte}"></div>
                     </div>
                     <div class="product__details__pic__slider owl-carousel">
                         <img data-imgbigurl="/img/product/details/product-details-2.jpg"
@@ -25,13 +25,12 @@
                     <h3>[[${product.subject}]]</h3>
                     <div class="product__details__rating">
                         <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                        <span>(18 reviews)</span>
+                        <span th:if="${product.reviews != null}">x[[${product.}]]</span>
+                        <span th:if="${product.comments != null}">
+                            <span th:text="@{|(${product.comments.size()})|}"></span>
+                        </span>
                     </div>
-                    <div class="product__details__price">$[[${product.price}]]</div>
+                    <div class="product__details__price">[[${product.price}]]</div>
                     <p>
                         This letter originated in England and has traveled around the world, bringing luck to those who
                         continued its journey. The person who receives this letter must send the same message to 7 other
