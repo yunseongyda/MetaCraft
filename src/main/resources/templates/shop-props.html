@@ -13,14 +13,14 @@
               <span>All categories</span>
             </div>
             <ul>
-              <li><a href="#">Characters</a></li>
-              <li><a href="#">Enviroments</a></li>
-              <li><a href="#">Props</a></li>
-              <li><a href="#">Vehicles</a></li>
-              <li><a href="#">Architecture</a></li>
-              <li><a href="#">Weapons & Military</a></li>
-              <li><a href="#">Sci-Fi</a></li>
-              <li><a href="#">Fantasy</a></li>
+              <li><a th:href="@{/product/char}">Characters</a></li>
+                <li><a th:href="@{/product/envi}">Enviroments</a></li>
+                <li><a th:href="@{/product/props}">Props</a></li>
+                <li><a th:href="@{/product/vehi}">Vehicles</a></li>
+                <li><a href="#">Architecture</a></li>
+                <li><a href="#">Weapons & Military</a></li>
+                <li><a href="#">Sci-Fi</a></li>
+                <li><a href="#">Fantasy</a></li>
             </ul>
           </div>
         </div>
@@ -54,15 +54,15 @@
   <!-- Hero Section End -->
 
   <!-- Breadcrumb Section Begin -->
-  <section class="breadcrumb-section set-bg" data-setbg="/img/breadcrumb.jpg">
-    <div class="container">
+  <section class="breadcrumb-section py-5 set-bg" data-setbg="/img/shop-categories/props/banner.png">
+    <div class="container my-4">
       <div class="row">
         <div class="col-lg-12 text-center">
           <div class="breadcrumb__text">
-            <h2>Organi Shop</h2>
+            <h2>Props</h2>
             <div class="breadcrumb__option">
-              <a href="./index.html">Home</a>
-              <span>Shop</span>
+              <a th:href="@{/product/list}">Shop</a>
+              <span>Props</span>
             </div>
           </div>
         </div>
@@ -84,7 +84,7 @@
                 <li><a th:href="@{/product/envi}">Enviroments</a></li>
                 <li><a th:href="@{/product/props}">Props</a></li>
                 <li><a th:href="@{/product/vehi}">Vehicles</a></li>
-                <li><a th:href="@{/product/archi}">Architecture</a></li>
+                <li><a href="#">Architecture</a></li>
                 <li><a href="#">Weapons & Military</a></li>
                 <li><a href="#">Sci-Fi</a></li>
                 <li><a href="#">Fantasy</a></li>
@@ -94,7 +94,7 @@
               <h4>Price</h4>
               <div class="price-range-wrap">
                 <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                  data-min="10" data-max="540">
+                  data-min="0" data-max="540">
                   <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
                   <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
                   <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
@@ -180,58 +180,58 @@
                   <div class="latest-prdouct__slider__item">
                     <a href="#" class="latest-product__item">
                       <div class="latest-product__item__pic">
-                        <img src="img/latest-product/lp-1.jpg" alt="">
+                        <img src="/img/latest-product/002.jpg" alt="">
                       </div>
                       <div class="latest-product__item__text">
-                        <h6>Crab Pool Security</h6>
-                        <span>$30.00</span>
+                        <h6>Lord Vampire</h6>
+                        <span class="text-danger">$35 <del class="text-muted opacity-50 d-inline small">$69.99</del></span>
                       </div>
                     </a>
                     <a href="#" class="latest-product__item">
                       <div class="latest-product__item__pic">
-                        <img src="img/latest-product/lp-2.jpg" alt="">
+                        <img src="/img/latest-product/006.jpg" alt="">
                       </div>
                       <div class="latest-product__item__text">
-                        <h6>Crab Pool Security</h6>
-                        <span>$30.00</span>
+                        <h6>Stylized Traps - Big Pack</h6>
+                        <span class="text-danger">$10 <del class="text-muted opacity-50 d-inline small">$19.99</del></span>
                       </div>
                     </a>
                     <a href="#" class="latest-product__item">
                       <div class="latest-product__item__pic">
-                        <img src="img/latest-product/lp-3.jpg" alt="">
+                        <img src="/img/latest-product/001.jpg" alt="">
                       </div>
                       <div class="latest-product__item__text">
-                        <h6>Crab Pool Security</h6>
-                        <span>$30.00</span>
+                        <h6>3D Explosive assets pack</h6>
+                        <span>$4.99</span>
                       </div>
                     </a>
                   </div>
                   <div class="latest-prdouct__slider__item">
                     <a href="#" class="latest-product__item">
                       <div class="latest-product__item__pic">
-                        <img src="img/latest-product/lp-1.jpg" alt="">
+                        <img src="/img/latest-product/003.jpg" alt="">
                       </div>
                       <div class="latest-product__item__text">
-                        <h6>Crab Pool Security</h6>
-                        <span>$30.00</span>
+                        <h6>Inca Props</h6>
+                        <span>FREE</span>
                       </div>
                     </a>
                     <a href="#" class="latest-product__item">
                       <div class="latest-product__item__pic">
-                        <img src="img/latest-product/lp-2.jpg" alt="">
+                        <img src="/img/latest-product/005.jpg" alt="">
                       </div>
                       <div class="latest-product__item__text">
-                        <h6>Crab Pool Security</h6>
-                        <span>$30.00</span>
+                        <h6>soviet cabinets</h6>
+                        <span>$24.99</span>
                       </div>
                     </a>
                     <a href="#" class="latest-product__item">
                       <div class="latest-product__item__pic">
-                        <img src="img/latest-product/lp-3.jpg" alt="">
+                        <img src="/img/latest-product/004.jpg" alt="">
                       </div>
                       <div class="latest-product__item__text">
-                        <h6>Crab Pool Security</h6>
-                        <span>$30.00</span>
+                        <h6>Japan Office Fur niture</h6>
+                        <span>$106</span>
                       </div>
                     </a>
                   </div>
@@ -249,8 +249,8 @@
               <div class="product__discount__slider owl-carousel">
                 <div class="col-lg-4">
                   <div class="product__discount__item">
-                    <div class="product__discount__item__pic set-bg" data-setbg="/img/popular/popular-1.png">
-                      <div class="product__discount__percent">-20%</div>
+                    <div class="product__discount__item__pic set-bg" data-setbg="/img/latest-product/006.jpg">
+                      <div class="product__discount__percent">-50%</div>
                       <ul class="product__item__pic__hover">
                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                         <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -258,16 +258,16 @@
                       </ul>
                     </div>
                     <div class="product__discount__item__text">
-                      <span>Dried Fruit</span>
-                      <h5><a href="#">Raisin’n’nuts</a></h5>
-                      <div class="product__item__price">$30.00 <span>$36.00</span></div>
+                      <span>lowpoly89</span>
+                      <h5><a href="#">Stylized Traps - Big Pack</a></h5>
+                      <div class="product__item__price">$9.99 <span>$19.98</span></div>
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-4">
                   <div class="product__discount__item">
-                    <div class="product__discount__item__pic set-bg" data-setbg="img/product/discount/pd-2.jpg">
-                      <div class="product__discount__percent">-20%</div>
+                    <div class="product__discount__item__pic set-bg" data-setbg="/img/shop-categories/props/sale_off1.jpg">
+                      <div class="product__discount__percent">-50%</div>
                       <ul class="product__item__pic__hover">
                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                         <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -275,16 +275,16 @@
                       </ul>
                     </div>
                     <div class="product__discount__item__text">
-                      <span>Vegetables</span>
-                      <h5><a href="#">Vegetables’package</a></h5>
-                      <div class="product__item__price">$30.00 <span>$36.00</span></div>
+                      <span>polyperfect</span>
+                      <h5><a href="#">Poly Universal Pack</a></h5>
+                      <div class="product__item__price">$100 <span>$200</span></div>
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-4">
                   <div class="product__discount__item">
-                    <div class="product__discount__item__pic set-bg" data-setbg="img/product/discount/pd-3.jpg">
-                      <div class="product__discount__percent">-20%</div>
+                    <div class="product__discount__item__pic set-bg" data-setbg="/img/shop-categories/props/sale_off2.jpg">
+                      <div class="product__discount__percent">-50%</div>
                       <ul class="product__item__pic__hover">
                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                         <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -292,16 +292,16 @@
                       </ul>
                     </div>
                     <div class="product__discount__item__text">
-                      <span>Dried Fruit</span>
-                      <h5><a href="#">Mixed Fruitss</a></h5>
-                      <div class="product__item__price">$30.00 <span>$36.00</span></div>
+                      <span>polyperfect</span>
+                      <h5><a href="#">Low Poly Ultimate Pack</a></h5>
+                      <div class="product__item__price">$60 <span>$120</span></div>
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-4">
                   <div class="product__discount__item">
-                    <div class="product__discount__item__pic set-bg" data-setbg="img/product/discount/pd-4.jpg">
-                      <div class="product__discount__percent">-20%</div>
+                    <div class="product__discount__item__pic set-bg" data-setbg="/img/shop-categories/props/sale_off4.jpg">
+                      <div class="product__discount__percent">-50%</div>
                       <ul class="product__item__pic__hover">
                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                         <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -309,16 +309,16 @@
                       </ul>
                     </div>
                     <div class="product__discount__item__text">
-                      <span>Dried Fruit</span>
-                      <h5><a href="#">Raisin’n’nuts</a></h5>
-                      <div class="product__item__price">$30.00 <span>$36.00</span></div>
+                      <span>Dekogon Studios</span>
+                      <h5><a href="#">Hospital Props - Vol.1</a></h5>
+                      <div class="product__item__price">$94.99 <span>$189.99</span></div>
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-4">
                   <div class="product__discount__item">
-                    <div class="product__discount__item__pic set-bg" data-setbg="img/product/discount/pd-5.jpg">
-                      <div class="product__discount__percent">-20%</div>
+                    <div class="product__discount__item__pic set-bg" data-setbg="/img/shop-categories/props/sale_off3.jpg">
+                      <div class="product__discount__percent">-50%</div>
                       <ul class="product__item__pic__hover">
                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                         <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -326,16 +326,16 @@
                       </ul>
                     </div>
                     <div class="product__discount__item__text">
-                      <span>Dried Fruit</span>
-                      <h5><a href="#">Raisin’n’nuts</a></h5>
-                      <div class="product__item__price">$30.00 <span>$36.00</span></div>
+                      <span>NV3D</span>
+                      <h5><a href="#">Shatter Stone: Stylized Fuel & Earth</a></h5>
+                      <div class="product__item__price">$12.50 <span>$24.99</span></div>
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-4">
                   <div class="product__discount__item">
-                    <div class="product__discount__item__pic set-bg" data-setbg="img/product/discount/pd-6.jpg">
-                      <div class="product__discount__percent">-20%</div>
+                    <div class="product__discount__item__pic set-bg" data-setbg="/img/shop-categories/props/sale_off5.jpg">
+                      <div class="product__discount__percent">-50%</div>
                       <ul class="product__item__pic__hover">
                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                         <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -343,9 +343,9 @@
                       </ul>
                     </div>
                     <div class="product__discount__item__text">
-                      <span>Dried Fruit</span>
-                      <h5><a href="#">Raisin’n’nuts</a></h5>
-                      <div class="product__item__price">$30.00 <span>$36.00</span></div>
+                      <span>Cybernetic Walrus</span>
+                      <h5><a href="#">Factory Interior + Factory Props Vol 1</a></h5>
+                      <div class="product__item__price">$34.99 <span>$69.99</span></div>
                     </div>
                   </div>
                 </div>
@@ -359,13 +359,13 @@
                   <span>Sort By</span>
                   <select>
                     <option value="0">Default</option>
-                    <option value="0">Default</option>
+                    <option value="0">a</option>
                   </select>
                 </div>
               </div>
               <div class="col-lg-4 col-md-4">
                 <div class="filter__found">
-                  <h6><span>16</span> Products found</h6>
+                  <h6><span>9</span> Products found</h6>
                 </div>
               </div>
               <div class="col-lg-4 col-md-3">
@@ -379,7 +379,7 @@
           <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-6">
               <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">
+                <div class="product__item__pic set-bg" data-setbg="/img/shop-categories/props/002.png">
                   <ul class="product__item__pic__hover">
                     <li><a href="#"><i class="fa fa-heart"></i></a></li>
                     <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -387,14 +387,14 @@
                   </ul>
                 </div>
                 <div class="product__item__text">
-                  <h6><a href="#">Crab Pool Security</a></h6>
-                  <h5>$30.00</h5>
+                  <h6><a href="#">3D Explosive assets pack</a></h6>
+                  <h5>$4.99</h5>
                 </div>
               </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6">
               <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
+                <div class="product__item__pic set-bg" data-setbg="/img/shop-categories/props/003.png">
                   <ul class="product__item__pic__hover">
                     <li><a href="#"><i class="fa fa-heart"></i></a></li>
                     <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -402,14 +402,14 @@
                   </ul>
                 </div>
                 <div class="product__item__text">
-                  <h6><a href="#">Crab Pool Security</a></h6>
-                  <h5>$30.00</h5>
+                  <h6><a href="#">Inca Props</a></h6>
+                  <h5>$0</h5>
                 </div>
               </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6">
               <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="img/product/product-3.jpg">
+                <div class="product__item__pic set-bg" data-setbg="/img/shop-categories/props/005.png">
                   <ul class="product__item__pic__hover">
                     <li><a href="#"><i class="fa fa-heart"></i></a></li>
                     <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -417,14 +417,14 @@
                   </ul>
                 </div>
                 <div class="product__item__text">
-                  <h6><a href="#">Crab Pool Security</a></h6>
-                  <h5>$30.00</h5>
+                  <h6><a href="#">soviet cabinets</a></h6>
+                  <h5>$24.99</h5>
                 </div>
               </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6">
               <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="img/product/product-4.jpg">
+                <div class="product__item__pic set-bg" data-setbg="/img/shop-categories/props/004.png">
                   <ul class="product__item__pic__hover">
                     <li><a href="#"><i class="fa fa-heart"></i></a></li>
                     <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -432,14 +432,14 @@
                   </ul>
                 </div>
                 <div class="product__item__text">
-                  <h6><a href="#">Crab Pool Security</a></h6>
-                  <h5>$30.00</h5>
+                  <h6><a href="#">Japan Office Furniture</a></h6>
+                  <h5>$106</h5>
                 </div>
               </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6">
               <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="img/product/product-5.jpg">
+                <div class="product__item__pic set-bg" data-setbg="/img/shop-categories/props/006.png">
                   <ul class="product__item__pic__hover">
                     <li><a href="#"><i class="fa fa-heart"></i></a></li>
                     <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -447,14 +447,14 @@
                   </ul>
                 </div>
                 <div class="product__item__text">
-                  <h6><a href="#">Crab Pool Security</a></h6>
-                  <h5>$30.00</h5>
+                  <h6><a href="#">Interior - Low Poly 3D Models Pack</a></h6>
+                  <h5>$89</h5>
                 </div>
               </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6">
               <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="img/product/product-6.jpg">
+                <div class="product__item__pic set-bg" data-setbg="/img/shop-categories/props/001.png">
                   <ul class="product__item__pic__hover">
                     <li><a href="#"><i class="fa fa-heart"></i></a></li>
                     <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -462,14 +462,14 @@
                   </ul>
                 </div>
                 <div class="product__item__text">
-                  <h6><a href="#">Crab Pool Security</a></h6>
-                  <h5>$30.00</h5>
+                  <h6><a href="#">STYLIZED Fantasy Herbalism Pack</a></h6>
+                  <h5>$40</h5>
                 </div>
               </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6">
               <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="img/product/product-7.jpg">
+                <div class="product__item__pic set-bg" data-setbg="/img/shop-categories/props/007.png">
                   <ul class="product__item__pic__hover">
                     <li><a href="#"><i class="fa fa-heart"></i></a></li>
                     <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -477,14 +477,14 @@
                   </ul>
                 </div>
                 <div class="product__item__text">
-                  <h6><a href="#">Crab Pool Security</a></h6>
-                  <h5>$30.00</h5>
+                  <h6><a href="#">3D Brakables Core Pack</a></h6>
+                  <h5>$10.50</h5>
                 </div>
               </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6">
               <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="img/product/product-8.jpg">
+                <div class="product__item__pic set-bg" data-setbg="/img/shop-categories/props/009.png">
                   <ul class="product__item__pic__hover">
                     <li><a href="#"><i class="fa fa-heart"></i></a></li>
                     <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -492,14 +492,14 @@
                   </ul>
                 </div>
                 <div class="product__item__text">
-                  <h6><a href="#">Crab Pool Security</a></h6>
-                  <h5>$30.00</h5>
+                  <h6><a href="#">Fantasy Weapon Pack Vol02</a></h6>
+                  <h5>$34.99</h5>
                 </div>
               </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6">
               <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="img/product/product-9.jpg">
+                <div class="product__item__pic set-bg" data-setbg="/img/shop-categories/props/008.png">
                   <ul class="product__item__pic__hover">
                     <li><a href="#"><i class="fa fa-heart"></i></a></li>
                     <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -507,62 +507,16 @@
                   </ul>
                 </div>
                 <div class="product__item__text">
-                  <h6><a href="#">Crab Pool Security</a></h6>
-                  <h5>$30.00</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-              <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="img/product/product-10.jpg">
-                  <ul class="product__item__pic__hover">
-                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                  </ul>
-                </div>
-                <div class="product__item__text">
-                  <h6><a href="#">Crab Pool Security</a></h6>
-                  <h5>$30.00</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-              <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="img/product/product-11.jpg">
-                  <ul class="product__item__pic__hover">
-                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                  </ul>
-                </div>
-                <div class="product__item__text">
-                  <h6><a href="#">Crab Pool Security</a></h6>
-                  <h5>$30.00</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-              <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="img/product/product-12.jpg">
-                  <ul class="product__item__pic__hover">
-                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                  </ul>
-                </div>
-                <div class="product__item__text">
-                  <h6><a href="#">Crab Pool Security</a></h6>
-                  <h5>$30.00</h5>
+                  <h6><a href="#">Casual Food - Low Poly 3D Models Pack</a></h6>
+                  <h5>$89</h5>
                 </div>
               </div>
             </div>
           </div>
+          
           <div class="product__pagination">
             <a href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+            <!-- <a href="#"><i class="fa fa-long-arrow-right"></i></a> -->
           </div>
         </div>
       </div>
@@ -570,79 +524,7 @@
   </section>
   <!-- Product Section End -->
 
-  <!-- Footer Section Begin -->
-  <footer class="footer spad">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-3 col-md-6 col-sm-6">
-          <div class="footer__about">
-            <div class="footer__about__logo">
-              <a href="./index.html"><img src="img/logo.png" alt=""></a>
-            </div>
-            <ul>
-              <li>Address: 60-49 Road 11378 New York</li>
-              <li>Phone: +65 11.188.888</li>
-              <li>Email: hello@colorlib.com</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-          <div class="footer__widget">
-            <h6>Useful Links</h6>
-            <ul>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">About Our Shop</a></li>
-              <li><a href="#">Secure Shopping</a></li>
-              <li><a href="#">Delivery infomation</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Our Sitemap</a></li>
-            </ul>
-            <ul>
-              <li><a href="#">Who We Are</a></li>
-              <li><a href="#">Our Services</a></li>
-              <li><a href="#">Projects</a></li>
-              <li><a href="#">Contact</a></li>
-              <li><a href="#">Innovation</a></li>
-              <li><a href="#">Testimonials</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-12">
-          <div class="footer__widget">
-            <h6>Join Our Newsletter Now</h6>
-            <p>Get E-mail updates about our latest shop and special offers.</p>
-            <form action="#">
-              <input type="text" placeholder="Enter your mail">
-              <button type="submit" class="site-btn">Subscribe</button>
-            </form>
-            <div class="footer__widget__social">
-              <a href="#"><i class="fa fa-facebook"></i></a>
-              <a href="#"><i class="fa fa-instagram"></i></a>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-              <a href="#"><i class="fa fa-pinterest"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="footer__copyright">
-            <div class="footer__copyright__text">
-              <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Copyright &copy;
-                <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made
-                with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
-                  target="_blank">Colorlib</a>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-              </p>
-            </div>
-            <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!-- Footer Section End -->
+    
 </body>
 
 </html>

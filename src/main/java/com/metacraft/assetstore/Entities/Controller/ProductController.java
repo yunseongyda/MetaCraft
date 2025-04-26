@@ -28,6 +28,22 @@ public class ProductController {
 
   @GetMapping("/char")
   public String ProductChar(){
-    return "shop-characteristics";
+    return "shop-characters";
+  }
+  @GetMapping("/envi")
+  public String ProductEnvi(){
+    return "shop-environments";
+  }
+  @GetMapping("/props")
+  public String ProductProps(){
+    return "shop-props";
+  }
+  @GetMapping("/vehi")
+  public String ProductVehi(){
+    return "shop-vehicles";
+  }
+  @GetMapping("/archi")
+  public String ProductArchi(){
+    return "shop-architecture";
   }
 }
