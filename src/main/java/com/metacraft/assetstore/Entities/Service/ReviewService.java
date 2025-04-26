@@ -1,5 +1,7 @@
 package com.metacraft.assetstore.Entities.Service;
 
+import java.time.LocalDateTime;
+
 import org.springframework.stereotype.Service;
 
 import com.metacraft.assetstore.Entities.Product;
@@ -21,6 +23,7 @@ public class ReviewService {
 		review.setRating(rating);
 		review.setProduct(product);;
 		review.setSiteUser(user);;
+		review.setCreateTime(LocalDateTime.now());
 		reviewRepo.save(review);
 	}
 }

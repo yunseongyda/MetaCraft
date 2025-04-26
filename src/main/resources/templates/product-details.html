@@ -1,14 +1,14 @@
 <html layout:decorate="~{layout}" layout:fragment="content">
 <!-- Product Details Section Begin -->
 <section class="product-details spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-6">
-                <div>
-                    <div>
-                        <!-- <div th:replace="~{asset-specte :: Specte}"></div> -->
-                    </div>
-                    <div class="product__details__pic__slider owl-carousel">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6">
+        <div>
+          <div class="mb-3">
+            <div th:replace="~{asset-specte :: Specte}"></div>
+          </div>
+          <!-- <div class="product__details__pic__slider owl-carousel">
                         <img data-imgbigurl="/img/product/details/product-details-2.jpg"
                             src="/img/product/details/thumb-1.jpg" alt="">
                         <img data-imgbigurl="/img/product/details/product-details-3.jpg"
@@ -17,189 +17,225 @@
                             src="/img/product/details/thumb-3.jpg" alt="">
                         <img data-imgbigurl="/img/product/details/product-details-4.jpg"
                             src="/img/product/details/thumb-4.jpg" alt="">
-                    </div>
-                </div>
+                    </div> -->
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6">
+        <div class="product__details__text">
+          <h3>[[${product.subject}]]</h3>
+          <div class="product__details__rating">
+            <i class="fa fa-star"></i>
+            <span th:if="${product.comments != null}"> x [[${rating}]]</span>
+            <span th:if="${product.comments != null}">
+              <!-- <span th:text="@{|(${product.comments.size()})|}"></span> -->
+            </span>
+          </div>
+          <div class="product__details__price">[[${product.price}]]</div>
+          <p>
+            This letter originated in England and has traveled around the world, bringing luck to those who
+            continued its journey. The person who receives this letter must send the same message to 7 other
+            people within 4 days. If done correctly, unexpected good fortune will follow.
+
+            One office worker ignored this letter and got into a car accident three days later. But another
+            person sent it to 7 others and landed a major business deal within a week.
+
+            Now that you have received this letter, may good luck be with you.
+            But if you ignore it... no one knows what might happen.
+
+            Believe in your luck. Send this letter to 7 people right away.
+          </p>
+          <a th:href="@{|/product/get/${product.id}|}" class="primary-btn">BUY</a>
+          <a href="" class="warning-btn">ADD TO CARD</a>
+          <!-- <a th:href="#" class="heart-icon"><span class="icon_heart_alt"></span></a> -->
+          <ul>
+            <li><b>Share on</b>
+              <div class="share">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-pinterest"></i></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="product__details__tab">
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
+                aria-selected="true">Introduction</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab" aria-selected="false">Description</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab" aria-selected="false">Reviews<span
+                  th:if="${product.comments != null}">([[${product.comments.size()}]])</span><a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="tabs-1" role="tabpanel">
+              <div class="product__details__tab__desc">
+                <h6>Asset Introduction</h6>
+                <p>[[${product.introduction}]]</p>
+              </div>
             </div>
-            <div class="col-lg-6 col-md-6">
-                <div class="product__details__text">
-                    <h3>[[${product.subject}]]</h3>
-                    <div class="product__details__rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                        <span>(18 reviews)</span>
-                    </div>
-                    <div class="product__details__price">$[[${product.price}]]</div>
-                    <p>
-                        This letter originated in England and has traveled around the world, bringing luck to those who
-                        continued its journey. The person who receives this letter must send the same message to 7 other
-                        people within 4 days. If done correctly, unexpected good fortune will follow.
-
-                        One office worker ignored this letter and got into a car accident three days later. But another
-                        person sent it to 7 others and landed a major business deal within a week.
-
-                        Now that you have received this letter, may good luck be with you.
-                        But if you ignore it... no one knows what might happen.
-
-                        Believe in your luck. Send this letter to 7 people right away.
-                    </p>
-                    <a href="#" class="primary-btn">BUY</a>
-                    <a href="#" class="warning-btn">ADD TO CARD</a>
-                    <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
-                    <ul>
-                        <li><b>Availability</b> <span>In Stock</span></li>
-                        <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
-                        <li><b>Weight</b> <span>0.5 kg</span></li>
-                        <li><b>Share on</b>
-                            <div class="share">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                                <a href="#"><i class="fa fa-pinterest"></i></a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+            <div class="tab-pane" id="tabs-2" role="tabpanel">
+              <div class="product__details__tab__desc">
+                <h6>Asset Description</h6>
+                <p>[[${product.description}]]</p>
+              </div>
             </div>
-            <div class="col-lg-12">
-                <div class="product__details__tab">
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
-                                aria-selected="true">Introduction</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
-                                aria-selected="false">Description</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
-                                aria-selected="false">Reviews<span th:if="${product.comments != null}">([[${product.comments.size()}]])</span><a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
-                            <div class="product__details__tab__desc">
-                                <h6>Asset Introduction</h6>
-                                <p>[[${product.introduction}]]</p>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="tabs-2" role="tabpanel">
-                            <div class="product__details__tab__desc">
-                                <h6>Asset Description</h6>
-                                <p>[[${product.description}]]</p>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="tabs-3" role="tabpanel">
-                            <div class="product__details__tab__desc">
-                                <h6>Products Reviews</h6>
-                                <form th:action="@{|/product/comment/${product.id}|}" class="row mb-5" method="post">
-                                    <div class="col-10">
-                                        <input type="text" class="form form-control" placeholder="Enter comment"
-                                            name="commnet">
-                                    </div>
-                                    <div class="col-2">
-                                        <input type="submit" class="btn btn-primary" value="Submit">
-                                    </div>
+            <div class="tab-pane" id="tabs-3" role="tabpanel">
+              <div class="product__details__tab__desc">
+                <h6>Products Reviews</h6>
+                <form th:action="@{|/review/send/${product.id}|}" class="row mb-5" method="post">
+                  <div class="col-9">
+                    <input type="text" class="form form-control" placeholder="Enter comment" name="content" required>
+                  </div>
+                  <div class="col-1">
+                    <input type="number" class="form form-control" placeholder="rate" name="rating" min="1" max="5"
+                      value="1">
+                  </div>
+                  <div class="col-2">
+                    <input type="submit" class="btn btn-primary" value="Submit">
+                  </div>
 
-                                </form>
-                                <hr>
-                                <div th:if="${product.comments != null}">
-                                    <div th:each="comment : ${product.comments}">
-                                        <div class="row mb-3">
-                                            <div class="col-2">
-                                                [[${comment.siteUser.userName}]]
-                                            </div>
-                                            <div class="col-10">
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                </form>
+                <hr>
+                <div th:if="${product.comments != null}">
+                  <div th:each="comment : ${product.comments}">
+                    <div class="row mb-3 w-100p">
+                      <div class="row w-100p">
+                        <div class="col-1">
+                          [[${comment.siteUser.username}]]
+                          
                         </div>
+                        <div class="col-1">
+                          <i class="fa fa-star"></i> x [[${comment.rating}]]
+                        </div>
+                        <div class="col-10 text-right">
+                          <p th:text="${#temporals.format(comment.createTime, 'yyyy-MM-dd HH:mm:ss')}"></p>
+                        </div>
+                      </div>
+                      <div class="row mt-3">
+                        <div class="col-12">
+                          <textarea th:text="${comment.content}" class="bottom-border w-100p p-0" cols="300" rows="3" disabled>
+                            
+                          </textarea>
+                        </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
 </section>
 <!-- Product Details Section End -->
 
 <!-- Related Product Section Begin -->
 <section class="related-product">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title related__product__title">
-                    <h2>Related Product</h2>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="section-title related__product__title">
+          <h2>Related Product</h2>
         </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="/img/product/product-1.jpg">
-                        <ul class="product__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Crab Pool Security</a></h6>
-                        <h5>$30.00</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="/img/product/product-2.jpg">
-                        <ul class="product__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Crab Pool Security</a></h6>
-                        <h5>$30.00</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="/img/product/product-3.jpg">
-                        <ul class="product__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Crab Pool Security</a></h6>
-                        <h5>$30.00</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="/img/product/product-7.jpg">
-                        <ul class="product__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Crab Pool Security</a></h6>
-                        <h5>$30.00</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="product__item">
+          <div class="product__item__pic set-bg" data-setbg="/img/product/product-1.jpg">
+            <ul class="product__item__pic__hover">
+              <li><a href="#"><i class="fa fa-heart"></i></a></li>
+              <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+            </ul>
+          </div>
+          <div class="product__item__text">
+            <h6><a href="#">Crab Pool Security</a></h6>
+            <h5>$30.00</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="product__item">
+          <div class="product__item__pic set-bg" data-setbg="/img/product/product-2.jpg">
+            <ul class="product__item__pic__hover">
+              <li><a href="#"><i class="fa fa-heart"></i></a></li>
+              <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+            </ul>
+          </div>
+          <div class="product__item__text">
+            <h6><a href="#">Crab Pool Security</a></h6>
+            <h5>$30.00</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="product__item">
+          <div class="product__item__pic set-bg" data-setbg="/img/product/product-3.jpg">
+            <ul class="product__item__pic__hover">
+              <li><a href="#"><i class="fa fa-heart"></i></a></li>
+              <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+            </ul>
+          </div>
+          <div class="product__item__text">
+            <h6><a href="#">Crab Pool Security</a></h6>
+            <h5>$30.00</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="product__item">
+          <div class="product__item__pic set-bg" data-setbg="/img/product/product-7.jpg">
+            <ul class="product__item__pic__hover">
+              <li><a href="#"><i class="fa fa-heart"></i></a></li>
+              <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+            </ul>
+          </div>
+          <div class="product__item__text">
+            <h6><a href="#">Crab Pool Security</a></h6>
+            <h5>$30.00</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 <!-- Related Product Section End -->
+<script layout:fragment="script1">
+  window.addEventListener('keydown', function (e) {
+    const active = document.activeElement;
+    if (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA') {
+      // Unity로 키 이벤트 안 넘어가게 막음
+      e.stopImmediatePropagation();
+    }
+  }, true);
+  window.addEventListener("keypress", function (e) {
+    const active = document.activeElement;
+    if (active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA")) {
+      e.stopImmediatePropagation();
+    }
+  }, true);
+
+  window.addEventListener("keyup", function (e) {
+    const active = document.activeElement;
+    if (active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA")) {
+      e.stopImmediatePropagation();
+    }
+  }, true);
+</script>
+<script layout:fragment="script" src="/js/unity.js"></script>
+
+</script>
 
 </html>
