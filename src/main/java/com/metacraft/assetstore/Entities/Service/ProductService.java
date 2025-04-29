@@ -25,6 +25,7 @@ public class ProductService {
 		product.setDescription(description);
 		product.setCategory(category);
 		product.setCreateTime(LocalDateTime.now());
+		product.setPrice(price);
 		
 		productRepo.save(product);
 	}

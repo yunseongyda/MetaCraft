@@ -32,9 +32,13 @@ public class ProductController {
     model.addAttribute("product", product);
     int sum = 0;
     for (Review review : product.getComments()) {
-      sum += review.getRating();
+       sum += review.getRating();
     }
-    model.addAttribute("rating", sum / (float)product.getComments().size());
+    System.out.println(product.getComments().size());
+    if (product.getComments().size() != 0)
+      model.addAttribute("rating", (float)sum / product.getComments().size());
+    else
+      model.addAttribute("rating", 0);
     model.addAttribute("asset", product.getModelAsset());
     return "product-details";
   }

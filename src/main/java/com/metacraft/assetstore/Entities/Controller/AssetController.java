@@ -162,7 +162,7 @@ public class AssetController {
       model.addAttribute("asset", asset); // Asset bd를 모델에 추가
       return "asset-release"; // Return to the form if there are validation errors
     }
-    
+    System.out.println("createProductForm: " + createProductForm.getPrice());
     productService.createProduct(asset, createProductForm.getSubject(),
       createProductForm.getIntroduction(),
       createProductForm.getDescription(),
