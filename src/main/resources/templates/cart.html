@@ -150,14 +150,21 @@
         </div>
         <div class="modal-body row" th:each="product : ${assetList}">
           <div class="col-10">[[${product.subject}]]</div>
-          <div class="col-2">[[${product.price}]]</div>
+          <div class="col-2">[[${product.price}]]$</div>
+        </div>
+        <div class="row p-3">
+          <div class="col-10"></div>
+          <div class="col-2">$[[${total}]]
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Buy All</button>
+          <a th:href="@{|/cart/buyAll|}" class="btn btn-primary">Buy All</a>
         </div>
+
       </div>
     </div>
+  </div>
   </div>
 </section>
 <!-- Shoping Cart Section End -->
