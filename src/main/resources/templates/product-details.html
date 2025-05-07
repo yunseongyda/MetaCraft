@@ -30,7 +30,7 @@
               <!-- <span th:text="@{|(${product.comments.size()})|}"></span> -->
             </span>
           </div>
-          <div class="product__details__price">[[${product.price}]]</div>
+          <div class="product__details__price">[[${product.price}]] $</div>
           <p>
             This letter originated in England and has traveled around the world, bringing luck to those who
             continued its journey. The person who receives this letter must send the same message to 7 other
@@ -45,7 +45,7 @@
             Believe in your luck. Send this letter to 7 people right away.
           </p>
           <a th:href="@{|/product/get/${product.id}|}" class="primary-btn">BUY</a>
-          <a href="" class="warning-btn">ADD TO CARD</a>
+          <a th:href="@{|/cart/add/${product.id}|}" class="warning-btn">ADD TO CARD</a>
           <!-- <a th:href="#" class="heart-icon"><span class="icon_heart_alt"></span></a> -->
           <ul>
             <li><b>Share on</b>
