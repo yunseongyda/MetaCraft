@@ -14,9 +14,9 @@
   </div>
   <input type="text" id="userAuthority" value="Create" style="display : none;">
   <form th:action="@{/api/assets/upload}" enctype="multipart/form-data" class="mt-5" method="post" id="assetForm">
-    <input type="text" id="obj" name="obj" style="display: none;">
-    <input type="text" id="bd" name="bd" style="display: none;">
-    <input type="text" id="mtl" name="mtl" style="display: none;">
+    <textarea type="text" id="obj" name="obj" style="display: none;"></textarea>
+    <textarea type="text" id="bd" name="bd" style="display: none;"></textarea>
+    <textarea type="text" id="mtl" name="mtl" style="display: none;"></textarea>
     <input type="file" id="imageInput" name="images" style="display: none;" multiple>
   </form>
   <script>

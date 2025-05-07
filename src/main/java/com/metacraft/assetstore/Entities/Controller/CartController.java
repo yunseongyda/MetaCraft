@@ -2,6 +2,7 @@ package com.metacraft.assetstore.Entities.Controller;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -100,7 +101,7 @@ public class CartController {
     SiteUser user = userService.getSiteUser(principal.getName());
     Cart cart = cartService.getCart(user.getId());
     if (user.getProducts() == null) {
-      user.setProducts(new ArrayList<>());
+      user.setProducts(new HashSet<>());
     }
     for (Product product : cart.getAsset()) {
       user.getProducts().add(product);

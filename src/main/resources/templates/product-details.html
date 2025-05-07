@@ -8,16 +8,11 @@
           <div class="mb-3">
             <div th:replace="~{asset-specte :: Specte}"></div>
           </div>
-          <!-- <div class="product__details__pic__slider owl-carousel">
-                        <img data-imgbigurl="/img/product/details/product-details-2.jpg"
-                            src="/img/product/details/thumb-1.jpg" alt="">
-                        <img data-imgbigurl="/img/product/details/product-details-3.jpg"
-                            src="/img/product/details/thumb-2.jpg" alt="">
-                        <img data-imgbigurl="/img/product/details/product-details-5.jpg"
-                            src="/img/product/details/thumb-3.jpg" alt="">
-                        <img data-imgbigurl="/img/product/details/product-details-4.jpg"
-                            src="/img/product/details/thumb-4.jpg" alt="">
-                    </div> -->
+          <div class="product__details__pic__slider owl-carousel" id="imageContainer" th:if="${product.modelAsset.images != null}" th:data-asset-id="${product.modelAsset.id}" th:data-urls="${imageUrls}">
+            <div th:each="img : ${product.modelAsset.images}">
+              <img th:src="${img.imageUrl}" alt="">
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-lg-6 col-md-6">
@@ -44,7 +39,8 @@
 
             Believe in your luck. Send this letter to 7 people right away.
           </p>
-          <a th:href="@{|/product/get/${product.id}|}" class="primary-btn">BUY</a>
+          <a th:if="${isBuy == false}" th:href="@{|/product/get/${product.id}|}" class="primary-btn">BUY</a>
+          <a th:if="${isBuy}" href="#" onclick="downloadImagesAsZip()" class="primary-btn">DOWNLOAD</a>
           <a th:href="@{|/cart/add/${product.id}|}" class="warning-btn">ADD TO CARD</a>
           <!-- <a th:href="#" class="heart-icon"><span class="icon_heart_alt"></span></a> -->
           <ul>
@@ -235,7 +231,7 @@
   }, true);
 </script>
 <script layout:fragment="script" src="/js/unity.js"></script>
-
+<script layout:fragment="script2" src="/js/script.js"></script>
 </script>
 
 </html>
