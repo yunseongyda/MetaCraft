@@ -17,6 +17,7 @@
     <type fullname="UnityEngine.MeshFilter" preserve="all" />
     <type fullname="UnityEngine.MeshRenderer" preserve="all" />
     <type fullname="UnityEngine.Object" preserve="all" />
+    <type fullname="UnityEngine.RenderTexture" preserve="all" />
     <type fullname="UnityEngine.Shader" preserve="all" />
     <type fullname="UnityEngine.Texture2D" preserve="all" />
     <type fullname="UnityEngine.Transform" preserve="all" />

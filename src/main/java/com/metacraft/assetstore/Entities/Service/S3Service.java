@@ -26,6 +26,7 @@ public class S3Service {
   private String bucketName;
 
   String folderName = "images/";
+  String thumbnailFolderName = "thumbnails/";
 
   // S3에 파일(이미지) 업로드하고, 업로드된 파일 URL 목록 반환
   public List<String> uploadFiles(List<MultipartFile> files) throws Exception {
@@ -47,7 +48,6 @@ public class S3Service {
                                                           .contentType("image/png")
                                                           .cacheControl("max-age=86400")
                                                           .build();
-
       // S3에 파일 업로드
       s3Client.putObject(putObjectRequest, RequestBody.fromBytes(file.getBytes()));
 
@@ -57,5 +57,35 @@ public class S3Service {
     }
 
     return fileUrls;
+  }
+
+  public String uploadThumbnail(MultipartFile thumbnail) throws Exception {
+    // 오늘 날짜 포멧팅
+    String currentDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
+    // 날짜별로 폴더 경로 추가
+    String dateFolder = thumbnailFolderName + currentDate + "/";
+    String fileName = dateFolder + System.currentTimeMillis() + "_" + thumbnail.getOriginalFilename();
+
+    // 메타데이터를 Map으로 설정
+    Map<String, String> metadata = new HashMap<>();
+    String contentType = thumbnail.getContentType(); // 예: "image/jpeg"
+    System.out.println("썸넬 이름 : "+thumbnail.getOriginalFilename());
+    metadata.put("Content-Type", contentType);
+    metadata.put("Cache-Control", "max-age=86400");
+
+    // PutObjectRequest 생성 (메타데이터 설정)
+    PutObjectRequest putObjectRequest = PutObjectRequest.builder()
+        .bucket(bucketName)
+        .key(fileName)
+        .metadata(metadata) // Map으로 메타데이터 설정
+        .build();
+
+    // S3에 파일 업로드
+    s3Client.putObject(putObjectRequest, RequestBody.fromBytes(thumbnail.getBytes()));
+    // 파일 URL 생성
+    String fileUrl = s3Client.utilities().getUrl(builder -> builder.bucket(bucketName).key(fileName)).toString();
+
+    return fileUrl;
   }
 }

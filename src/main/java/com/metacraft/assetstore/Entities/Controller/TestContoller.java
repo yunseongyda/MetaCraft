@@ -41,6 +41,7 @@ public class TestContoller {
   public String getImageUrls(@RequestParam("num") Integer assetId, Model model) {
     List<String> imageUrls = imgService.getImageUrlsByAssetId(assetId);
     model.addAttribute("imageUrls", imageUrls);
+    model.addAttribute("assetId", assetId);
     return "test";
   }
 

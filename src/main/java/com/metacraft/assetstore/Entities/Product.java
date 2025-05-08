@@ -41,22 +41,15 @@ public class Product {
 
 	private int totalView;
 
-	@OneToMany
+	@ManyToMany
 	private Set<SiteUser> likeUsers;
-	@OneToMany
-	private Set<SiteUser> buyUsers;
 
+	@ManyToMany
+	private Set<SiteUser> buyUsers;
 
 	@OneToOne
 	private Asset modelAsset;
-
-	@ManyToOne
-	private SiteUser siteUser;
 	
-	@OneToMany(mappedBy = "asset")
+	@OneToMany(mappedBy = "product")
 	private List<Review> comments;
-
-	@ManyToMany
-	private List<SiteUser> LikedPeople;
-
 }

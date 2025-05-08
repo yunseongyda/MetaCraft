@@ -13,8 +13,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.metacraft.assetstore.Entities.Product;
 import com.metacraft.assetstore.Entities.SiteUser;
 import com.metacraft.assetstore.Entities.UserRole;
+import com.metacraft.assetstore.Entities.Repository.ProductRepository;
 import com.metacraft.assetstore.Entities.Repository.SiteUserRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -24,6 +26,7 @@ import lombok.RequiredArgsConstructor;
 public class SiteUserService implements UserDetailsService {
   private final SiteUserRepository userRepo;
   private final PasswordEncoder passwordEncoder;
+  private final ProductRepository productRepo;
 
   // 회원가입 처리
   public SiteUser create(String username, String email, String pasword) {
@@ -68,5 +71,12 @@ public class SiteUserService implements UserDetailsService {
       authorities.add(new SimpleGrantedAuthority(UserRole.USER.getValue()));
     }
     return new User(siteUser.getUsername(), siteUser.getPassword(), authorities);
+  }
+
+  public void addProductToUser(SiteUser user, Product product) {
+    user.getProducts().add(product);
+    product.getBuyUsers().add(user);
+    userRepo.save(user);
+    productRepo.save(product);
   }
 }

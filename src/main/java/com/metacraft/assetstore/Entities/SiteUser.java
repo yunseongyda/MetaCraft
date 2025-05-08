@@ -1,6 +1,7 @@
 package com.metacraft.assetstore.Entities;
 
 import java.util.List;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -28,12 +29,17 @@ public class SiteUser {
 	
 	private String password;
 	
+	//산 에셋들
+	@ManyToMany(mappedBy = "buyUsers")
+	private Set<Product> products;
+
 	@OneToMany(mappedBy = "siteUser")
-	private List<Product> assets;
-	
+	private List<Asset> assets;
+
+
 	@OneToMany(mappedBy = "siteUser")
 	private List<Review> comments;
   
-	@ManyToMany
-	private List<Product> LikeProduct;
+	@ManyToMany(mappedBy = "likeUsers")
+	private Set<Product> likedProducts;
 }

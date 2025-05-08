@@ -1,0 +1,58 @@
+<html layout:decorate="~{layout}">
+
+<div layout:fragment="content">
+  <div class="container my-5">
+    <h2 class="mb-2">Asset List</h2>
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <a th:href="@{/api/assets/create}" class="asset-block">
+          <span class="asset-createButton">
+            <p class="asset-block-text">+</p>
+          </span>
+        </a>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 mb-4" th:each="asset : ${assets}">
+        <div class="asset-block">
+          <div class="dropdown asset-dropdown">
+            <button class="btn btn-secondary dropdown-toggle no-caret asset-dropdown-button" type="button"
+              data-toggle="dropdown" aria-expanded="false">
+              ⋮
+            </button>
+            <div class="dropdown-menu">
+              <a th:href="@{|/api/assets/release/${asset.id}|}" class="dropdown-item" type="button">Release</a>
+              <a class="dropdown-item" type="button">Modify</a>
+              <a class="dropdown-item" type="button">Remove</a>
+            </div>
+          </div>
+          <div th:if="${asset.thumbnail != null}">
+            <img th:src="${asset.thumbnail.imageUrl}" alt="썸네일" class="asset-thumbnail">
+          </div>
+          <div th:if="${asset.thumbnail == null}">
+            <img src="/img/default.png" alt="썸네일" class="asset-thumbnail">
+          </div>
+        </div>
+
+        <form th:action="@{/api/assets/edit-meta}" class="row mt-1" method="post" enctype="multipart/form-data">
+          <input type="hidden" th:value="${asset.id}" name="id">
+          <div class="col-6">
+            <input type="text" class="form-control" name="assetName" th:value="${asset.name}">
+          </div>
+          <div class="col-3 form-control text-center">
+            <label th:for="@{|thumbnail_${asset.id}|}"
+              class="font-smaller d-flex justify-content-center align-items-center"
+              style="height: 100%; cursor: pointer;">
+              mod thumbnail
+            </label>
+            <input type="file" class="form-control-file" name="thumbnail" style="display: none;"
+              th:id="@{|thumbnail_${asset.id}|}">
+          </div>
+          <div class="col-3">
+            <input type="submit" class="btn btn-primary" value="save">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+</html>

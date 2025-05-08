@@ -27,7 +27,7 @@ public class Review {
 	private SiteUser siteUser;
 	
 	@ManyToOne
-	private Product asset;
+	private Product product;
 	
 	private LocalDateTime createTime;
 
