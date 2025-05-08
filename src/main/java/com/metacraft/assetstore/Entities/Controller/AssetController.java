@@ -60,7 +60,7 @@ public class AssetController {
     // System.out.println("files size: " + files.size());
     SiteUser user = userService.getSiteUser(principal.getName());
     try {
-      Asset asset = assetService.uploadAsset(obj, mtl, bd, files);
+      Asset asset = assetService.uploadAsset(obj, mtl, bd, files, user.getUsername()); // AssetService에서 Asset 업로드 메서드 호출
       asset.setSiteUser(user); // Asset에 SiteUser 설정
       assetRepo.save(asset); // Asset 저장
     } catch (Exception e) {

@@ -33,13 +33,13 @@ public class SecurityConfig {
 					.loginPage("/siteuser/login")  // 로그인 페이지 경로 설정
 					.defaultSuccessUrl("/")  // 로그인 성공 후 리다이렉트될 경로
 			)
-}
-	return http.build();
-			);
-					.invalidateHttpSession(true)  // 로그아웃 후 세션 무효화
-					.logoutSuccessUrl("/")  // 로그아웃 후 리다이렉트될 경로
-					.logoutRequestMatcher(new AntPathRequestMatcher("/siteuser/signout"))  // 로그아웃 경로 설정
 			.logout(logout -> logout
+					.logoutRequestMatcher(new AntPathRequestMatcher("/siteuser/signout"))  // 로그아웃 경로 설정
+					.logoutSuccessUrl("/")  // 로그아웃 후 리다이렉트될 경로
+					.invalidateHttpSession(true)  // 로그아웃 후 세션 무효화
+			);
+	return http.build();
+}
 
 
 	@Bean

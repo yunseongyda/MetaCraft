@@ -10,7 +10,7 @@ import com.metacraft.assetstore.Entities.Asset;
 import com.metacraft.assetstore.Entities.Image;
 // import com.metacraft.assetstore.Entities.SiteUser;
 import com.metacraft.assetstore.Entities.Repository.AssetRepository;
-// import com.metacraft.assetstore.Entities.Repository.ImageRepository;
+import com.metacraft.assetstore.Entities.Repository.ImageRepository;
 
 // import jakarta.mail.Multipart;
 // import jakarta.transaction.Transactional;
