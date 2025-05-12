@@ -1,0 +1,40 @@
+<div th:fragment="model-createfragment" class="mx-0">
+  <div id="unity-container" class="unity-desktop">
+    <canvas id="unity-canvas" width="100%" tabindex="-1"></canvas>
+    <div id="unity-loading-bar">
+      <div id="unity-logo"></div>
+      <div id="unity-progress-bar-empty">
+        <div id="unity-progress-bar-full"></div>
+      </div>
+    </div>
+    <br>
+    <div id="unity-footer">
+      <div id="unity-fullscreen-button"></div>
+    </div>
+  </div>
+  <input type="text" id="userAuthority" value="Create" style="display : none;">
+  <form th:action="@{/api/assets/upload}" enctype="multipart/form-data" class="mt-5" method="post" id="assetForm">
+    <textarea type="text" id="obj" name="obj" style="display: none;"></textarea>
+    <textarea type="text" id="bd" name="bd" style="display: none;"></textarea>
+    <textarea type="text" id="mtl" name="mtl" style="display: none;"></textarea>
+    <input type="file" id="imageInput" name="images" style="display: none;" multiple>
+  </form>
+  <script>
+    document.addEventListener('keydown', function (e) {
+      const activeElement = document.activeElement;
+      console.log(activeElement.id);
+      // 만약 포커스가 input 필드에 있을 때만 동작하도록 설정
+      if (activeElement.tagName.toLowerCase() === "input") {
+        if (e.key === "Backspace") {
+          // 백스페이스 처리
+          const currentValue = activeElement.value;
+          const newValue = currentValue.slice(0, currentValue.length - 1);
+          activeElement.value = newValue;
+        }
+      } else {
+        // 포커스가 input이 아닐 경우 입력 차단
+        e.preventDefault(); // 키 입력 차단
+      }
+    });
+  </script>
+</div>

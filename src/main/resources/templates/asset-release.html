@@ -1,0 +1,79 @@
+<html layout:decorate="~{layout}">
+<div class="container" layout:fragment="content">
+  <form th:action="@{|/api/assets/release/${asset.id}|}" th:object="${createProductForm}" method="post">
+    <div th:replace="~{form-errors :: formErrorsFragment}"></div>
+    <div class="row">
+      <div class="col-12 col-md-4 row">
+        <div class="col-12">
+          <label for="productName" class="col-form-label">Product name</label>
+          <input type="text" class="form-control bottom-border" th:field="*{subject}" id="productName"
+            placeholder="Product Name">
+        </div>
+        <div class="col-12">
+          <label th:for="*{introduction}" class="col-form-label">Introduction</label>
+          <textarea th:field="*{introduction}" cols="30" rows="3" class="form-control bottom-border"
+            placeholder="Introduction"></textarea>
+        </div>
+
+        <div class="col-12">
+          <label th:for="*{description}" class="col-form-label">Description</label>
+          <textarea th:field="*{description}" cols="30" rows="5" class="form-control bottom-border"
+            placeholder="Description"></textarea>
+        </div>
+
+        <div class="col-12">
+          <label th:for="*{price}" class="col-form-label">Price($)</label>
+          <input type="number" class="form-control bottom-border" th:field="*{price}" placeholder="Price">
+        </div>
+
+        <div class="col-12">
+          <label th:for="*{category}" class="col-form-label">Category</label>
+        </div>
+        <div class="col-12">
+          <select th:field="*{category}" class="form-control w-100p">
+            <option value="Category1">Category 1</option>
+            <option value="Category2">Category 2</option>
+            <option value="Category3">Category 3</option>
+            <option value="Category4">Category 4</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <input type="submit" class="btn btn-primary my-3" value="Release">
+        </div>
+      </div>
+
+      <div class="col-12 col-md-8">
+        <div th:replace="~{asset-specte :: Specte}"></div>
+      </div>
+
+
+    </div>
+  </form>
+</div>
+<script layout:fragment="script1">
+  window.addEventListener('keydown', function (e) {
+    const active = document.activeElement;
+    if (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA') {
+      // Unity로 키 이벤트 안 넘어가게 막음
+      e.stopImmediatePropagation();
+    }
+  }, true);
+  window.addEventListener("keypress", function (e) {
+  const active = document.activeElement;
+  if (active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA")) {
+    e.stopImmediatePropagation();
+  }
+}, true);
+
+window.addEventListener("keyup", function (e) {
+  const active = document.activeElement;
+  if (active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA")) {
+    e.stopImmediatePropagation();
+  }
+}, true);
+</script>
+<script layout:fragment="script" src="/js/unity.js"></script>
+
+</script>
+
+</html>

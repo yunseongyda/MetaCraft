@@ -1,0 +1,61 @@
+.video-container {
+  position: relative;
+  width: 1000px; /* 또는 100% */
+  max-width: 100%;
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.video-container .hero__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white; /* 필요 시 */
+  text-align: center;
+  z-index: 2;
+}
+
+.bg-gray-alpha-50 {
+  background-color: rgba(255, 255, 255, 0.5); /* 필요 시 */
+}
+
+.banner__pic {
+  position: relative;
+  overflow: hidden;
+}
+
+.banner__pic img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ad__text {
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: left;
+  z-index: 2;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.lightblue-btn {
+  background-color: #0197FE !important;
+  color: white; 
+}
+
+.line-through {
+  text-decoration: line-through !important;
+}
+
+.opacity-50 {
+  opacity: 0.5 !important;
+}

@@ -13,17 +13,20 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.metacraft.assetstore.Entities.Product;
 import com.metacraft.assetstore.Entities.SiteUser;
 import com.metacraft.assetstore.Entities.UserRole;
+import com.metacraft.assetstore.Entities.Repository.ProductRepository;
 import com.metacraft.assetstore.Entities.Repository.SiteUserRepository;
 
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
 @Service
+@RequiredArgsConstructor
 public class SiteUserService implements UserDetailsService {
   private final SiteUserRepository userRepo;
   private final PasswordEncoder passwordEncoder;
+  private final ProductRepository productRepo;
 
   // 회원가입 처리
   public SiteUser create(String username, String email, String pasword) {
@@ -50,6 +53,10 @@ public class SiteUserService implements UserDetailsService {
       return null;
   }
 
+  /**
+   * 사용자 이름을 기반으로 사용자 정보를 조회하고,
+   * 존재하면 해당 사용자의 권한을 설ㅈ어하여 반환한다.
+   */
   @Override
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
     Optional<SiteUser> _siteUser = this.userRepo.findByusername(username);
@@ -64,5 +71,12 @@ public class SiteUserService implements UserDetailsService {
       authorities.add(new SimpleGrantedAuthority(UserRole.USER.getValue()));
     }
     return new User(siteUser.getUsername(), siteUser.getPassword(), authorities);
+  }
+
+  public void addProductToUser(SiteUser user, Product product) {
+    user.getProducts().add(product);
+    product.getBuyUsers().add(user);
+    userRepo.save(user);
+    productRepo.save(product);
   }
 }
