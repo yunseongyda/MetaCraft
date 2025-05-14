@@ -90,7 +90,9 @@ public class ProductController {
   }
 
   @GetMapping("/list")
-  public String ProductList(){
+  public String ProductList(Model model){
+    List<Product> productList = productService.getAllProducts();
+    model.addAttribute("productList", productList);
     return "shop-grid";
   }
 

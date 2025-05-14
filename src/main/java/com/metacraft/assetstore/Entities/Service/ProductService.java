@@ -1,6 +1,7 @@
 package com.metacraft.assetstore.Entities.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -31,5 +32,9 @@ public class ProductService {
 	}
 	public Product getProduct(Integer id) {
 		return productRepo.findById(id).orElse(null);
+	}
+
+	public List<Product> getAllProducts(){
+		return productRepo.findAll();
 	}
 }

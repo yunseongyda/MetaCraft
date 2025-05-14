@@ -31,10 +31,14 @@
         </div>
         <div class="col-12">
           <select th:field="*{category}" class="form-control w-100p">
-            <option value="Category1">Category 1</option>
-            <option value="Category2">Category 2</option>
-            <option value="Category3">Category 3</option>
-            <option value="Category4">Category 4</option>
+            <option value="Characters">Characters</option>
+            <option value="Environments">Environments</option>
+            <option value="Props">Props</option>
+            <option value="Vehicles">Vehicles</option>
+            <option value="Architecture">Architecture</option>
+            <option value="Weapons & Military">Weapons & Military</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+            <option value="Fantasy">Fantasy</option>
           </select>
         </div>
         <div class="col-12">
@@ -45,8 +49,6 @@
       <div class="col-12 col-md-8">
         <div th:replace="~{asset-specte :: Specte}"></div>
       </div>
-
-
     </div>
   </form>
 </div>
