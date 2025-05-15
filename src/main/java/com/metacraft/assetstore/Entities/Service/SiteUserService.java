@@ -79,4 +79,7 @@ public class SiteUserService implements UserDetailsService {
     userRepo.save(user);
     productRepo.save(product);
   }
+  public void saveUser(SiteUser user) {
+    userRepo.save(user);
+  }
 }

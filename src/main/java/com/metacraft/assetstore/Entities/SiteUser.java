@@ -31,7 +31,7 @@ public class SiteUser {
 	
 	//산 에셋들
 	@ManyToMany(mappedBy = "buyUsers")
-	private Set<Product> products;
+	private List<Product> products;
 
 	@OneToMany(mappedBy = "siteUser")
 	private List<Asset> assets;
