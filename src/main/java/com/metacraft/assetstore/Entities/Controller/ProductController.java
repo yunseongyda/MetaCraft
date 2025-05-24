@@ -89,8 +89,17 @@ public class ProductController {
     return "redirect:/";
   }
 
-  @GetMapping("/list")
-  public String ProductList(){
+  @GetMapping("/list/{category}")
+  public String ProductList(@PathVariable("category") String category, Model model){
+    List<Product> productList;
+    int count = 0;
+    if (category.equals("all")) {
+      productList = productService.getAllProducts();
+    } else {
+      productList = productService.getProductsByCategory(category);
+    }
+    model.addAttribute("productList", productList);
+    model.addAttribute("count", productList.size());
     return "shop-grid";
   }
 

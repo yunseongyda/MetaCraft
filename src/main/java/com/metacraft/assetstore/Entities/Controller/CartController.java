@@ -46,29 +46,6 @@ public class CartController {
     return "cart";
   }
 
-  //장바구니 페이지 모달을 띄워주는 함수수
-  @PreAuthorize("isAuthenticated()")
-  @GetMapping("/list/{modalName}")
-  public String cart(@PathVariable("modalName") String modalName, Principal principal, Model model) {
-
-    SiteUser user = userService.getSiteUser(principal.getName());
-    Cart cart = cartService.getCart(user.getId());
-
-    if (cart == null) {
-      cart = cartService.createCart(user.getId());
-    }
-    model.addAttribute("assetList", cart.getAsset());
-    model.addAttribute("total", 0);
-    if (modalName == null || modalName.equals("")) {
-      model.addAttribute("modalName", "");
-    }
-
-    else{
-      model.addAttribute("modalName", modalName);
-    }
-    return "cart";
-  }
-
   @PreAuthorize("isAuthenticated()")
   @GetMapping("/add/{p_id}")
   public String addAssetToCart(@PathVariable("p_id") Integer id, Principal principal) {
@@ -101,10 +78,11 @@ public class CartController {
     SiteUser user = userService.getSiteUser(principal.getName());
     Cart cart = cartService.getCart(user.getId());
     if (user.getProducts() == null) {
-      user.setProducts(new HashSet<>());
+      user.setProducts(new ArrayList<Product>());
+      userService.saveUser(user);
     }
     for (Product product : cart.getAsset()) {
-      user.getProducts().add(product);
+      userService.addProductToUser(user, product);
       cartService.deleteAssetFromCart(cart, product);
     }
     return "redirect:/cart/list";
